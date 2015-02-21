@@ -1,1 +1,11 @@
 <a href="<%= new_access_url %>">Admin</a>
+<div id="content"></div>
+
+<script type="text/jsx" src="<%= asset_path "publicManifest" %>"></script>
+
+<script type="text/jsx">
+  $(function () {
+    var App = BunnyEars.App;
+    React.render(<App />, document.getElementById("content"));
+  });
+</script>

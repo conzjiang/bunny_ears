@@ -19,7 +19,7 @@
 
       $.ajax({
         type: "get",
-        url: "api/tv_shows",
+        url: "admin/tv_shows",
         dataType: "json",
         success: function (data) {
           this.setState({ shows: data.tv_shows });
@@ -84,7 +84,7 @@
 
       $.ajax({
         type: "post",
-        url: "api/tv_shows",
+        url: "admin/tv_shows",
         data: { tv_show: data, mark: newMark },
         dataType: "json",
         success: function (data) {
@@ -106,7 +106,7 @@
 
       $.ajax({
         type: "put",
-        url: "api/tv_shows/update",
+        url: "admin/tv_shows/update",
         data: { tv_show: this.imageData },
         success: function () {
           console.log("saved")
