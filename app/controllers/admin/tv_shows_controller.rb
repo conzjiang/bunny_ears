@@ -26,7 +26,7 @@ class Admin::TvShowsController < ApplicationController
       TvShow.find(tv_id).update!(image: image)
     end
 
-    head :ok
+    render json: {}
   end
 
   private

@@ -3,33 +3,6 @@
   var Admin = BunnyEars.Admin = BunnyEars.Admin || {};
 
   var TvShow = Admin.TvShow = React.createClass({
-    previewImage: function (e) {
-      var reader = new FileReader();
-      var file = e.target.files[0];
-
-      reader.onload = function (file) {
-        this.collectNewImage(file.target.result);
-      }.bind(this);
-
-      reader.readAsDataURL(file);
-    },
-
-    updateInput: function (e) {
-      this.setState({ url: e.target.value });
-    },
-
-    printImage: function (e) {
-      e.preventDefault();
-      this.collectNewImage(this.state.url);
-    },
-
-    collectNewImage: function (newImage) {
-      var imageData = {};
-      imageData[this.props.show.id] = newImage;
-      this.props.collect(imageData);
-      this.setState({ image_url: newImage });
-    },
-
     getInitialState: function () {
       return { url: "", image_url: "" };
     },
@@ -55,6 +28,33 @@
           <button onClick={this.printImage}>Click</button>
         </li>
       );
+    },
+
+    previewImage: function (e) {
+      var reader = new FileReader();
+      var file = e.target.files[0];
+
+      reader.onload = function (file) {
+        this.collectNewImage(file.target.result);
+      }.bind(this);
+
+      reader.readAsDataURL(file);
+    },
+
+    collectNewImage: function (newImage) {
+      var imageData = {};
+      imageData[this.props.show.id] = newImage;
+      this.props.collect(imageData);
+      this.setState({ image_url: newImage });
+    },
+
+    updateInput: function (e) {
+      this.setState({ url: e.target.value });
+    },
+
+    printImage: function (e) {
+      e.preventDefault();
+      this.collectNewImage(this.state.url);
     }
   });
 })(this);

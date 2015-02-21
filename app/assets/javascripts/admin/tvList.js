@@ -45,7 +45,7 @@
 
           <form onSubmit={this.saveImages} encType="multipart/form-data">
             <ul>{shows}</ul>
-            <button>Submit</button>
+            <button ref="submit">Submit</button>
           </form>
         </div>
       );
@@ -100,16 +100,23 @@
     },
 
     saveImages: function (e) {
-      e.preventDefault();
+      var button;
 
+      e.preventDefault();
       if (isEmpty(this.imageData)) return;
+      button = this.refs.submit.getDOMNode();
+      button.disabled = true;
+      button.innerHTML = "Uploading...";
 
       $.ajax({
         type: "put",
         url: "admin/tv_shows/update",
         data: { tv_show: this.imageData },
         success: function () {
-          console.log("saved")
+          setTimeout(function () {
+            button.disabled = false;
+            button.innerHTML = "Submit";
+          }, 1000);
         }
       });
     }
