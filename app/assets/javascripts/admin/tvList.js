@@ -11,7 +11,7 @@
 
   TvList = Admin.TvList = React.createClass({
     getInitialState: function () {
-      return { shows: [], errors: [] };
+      return { initialShows: [], shows: [], errors: [] };
     },
 
     componentDidMount: function () {
@@ -22,19 +22,21 @@
         url: "admin/tv_shows",
         dataType: "json",
         success: function (data) {
-          this.setState({ shows: data.tv_shows });
+          this.setState({
+            initialShows: data.tv_shows,
+            shows: data.tv_shows
+          });
           this.key = data.key;
         }.bind(this)
       });
     },
 
     render: function () {
-      var shows = this.state.shows.map(function (show, index) {
+      var shows = this.state.shows.map(function (show) {
         return <TvShow show={show}
                        key={show.id}
                        collect={this.collectImage}
-                       destroy={this.destroyTv}
-                       index={index} />;
+                       destroy={this.destroyTv} />;
       }.bind(this));
 
       var errors = this.state.errors.map(function (error) {
@@ -44,7 +46,7 @@
       return (
         <div>
           <button onClick={this.addShows}>Add TV shows</button>
-
+          <input type="text" onChange={this.filter} />
           <ul>{errors}</ul>
 
           <form onSubmit={this.saveImages} encType="multipart/form-data">
@@ -55,26 +57,45 @@
       );
     },
 
+    filter: function (e) {
+      var query = e.target.value;
+      var matchData = new RegExp(query, "i");
+
+      var shows = this.state.initialShows.filter(function (tv) {
+        return matchData.test(tv.title);
+      });
+
+      this.setState({ shows: shows });
+    },
+
     collectImage: function (data) {
       for (var id in data) {
         this.imageData[id] = data[id];
       }
     },
 
-    destroyTv: function (index) {
-      var tv = this.state.shows[index];
-
+    destroyTv: function (tv) {
       $.ajax({
         type: "delete",
         url: "admin/tv_shows/" + tv.id,
         dataType: "json",
         success: function () {
-          var shows = this.state.shows;
-          shows.splice(index, 1);
-
-          this.setState({ shows: shows });
+          this.deleteFromList(tv);
         }.bind(this)
       });
+    },
+
+    deleteFromList: function (tv) {
+      var newState = {};
+
+      ["initialShows", "shows"].forEach(function (key) {
+        var list = this.state[key];
+        var index = list.indexOf(tv);
+        list.splice(index, 1);
+        newState[list] = list;
+      }.bind(this));
+
+      this.setState(newState);
     },
 
     addShows: function () {

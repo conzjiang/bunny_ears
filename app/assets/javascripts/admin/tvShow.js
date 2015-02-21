@@ -59,7 +59,7 @@
     },
 
     deleteTv: function () {
-      this.props.destroy(this.props.index);
+      this.props.destroy(this.props.show);
     }
   });
 })(this);
