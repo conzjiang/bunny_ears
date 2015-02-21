@@ -1,1 +1,64 @@
-<button>Get TV shows</button>
+<button>Add TV shows</button>
+<div id="content"></div>
+
+<script type="text/jsx">
+  $(function () {
+    var counter = 1;
+
+    var save = function (data) {
+      $.ajax({
+        type: "post",
+        url: "<%= tv_shows_url %>",
+        data: { tv_show: data },
+        dataType: "json",
+        success: function (shows) {
+          React.render(
+            <TvList shows={shows} />,
+            document.getElementById("content")
+          );
+        }
+      });
+    };
+
+    var parse = function (data) {
+      return data.results.map(function (tv) {
+        return { title: tv.name, tmdb_id: tv.id };
+      });
+    };
+
+    $("button").on("click", function (e) {
+      $.ajax({
+        type: "get",
+        url: "http://api.themoviedb.org/3/tv/popular",
+        data: { api_key: "<%= ENV["TMDB_KEY"] %>", page: counter },
+        dataType: "json",
+        success: function (data) {
+          save(parse(data));
+          counter++;
+        }
+      });
+    });
+
+    var TvList = React.createClass({
+      render: function () {
+        var shows = this.props.shows.map(function (show) {
+          return <TvShow show={show} key={show.id} />;
+        });
+
+        return <ul>{shows}</ul>;
+      }
+    });
+
+    var TvShow = React.createClass({
+      render: function () {
+        return <li>{this.props.show.title}</li>;
+      }
+    });
+  });
+</script>
+
+<ul>
+  <% TvShow.all.each do |tv| %>
+    <li><%= tv.title %> <%= tv.image.url %></li>
+  <% end %>
+</ul>
