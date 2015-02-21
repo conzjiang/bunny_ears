@@ -46,6 +46,7 @@
       return (
         <div>
           <button onClick={this.addShows}>Add TV shows</button>
+          <button onClick={this.sort}>Sort</button>
           <input type="text" onChange={this.filter} />
           <ul>{errors}</ul>
 
@@ -55,17 +56,6 @@
           </form>
         </div>
       );
-    },
-
-    filter: function (e) {
-      var query = e.target.value;
-      var matchData = new RegExp(query, "i");
-
-      var shows = this.state.initialShows.filter(function (tv) {
-        return matchData.test(tv.title);
-      });
-
-      this.setState({ shows: shows });
     },
 
     collectImage: function (data) {
@@ -138,6 +128,29 @@
           this.setState({ errors: ["Fail"] });
         }
       });
+    },
+
+    sort: function () {
+      var sortedShows = this.state.shows.sort(function (tv1, tv2) {
+        if (tv1.title > tv2.title) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+
+      this.setState({ shows: sortedShows });
+    },
+
+    filter: function (e) {
+      var query = e.target.value;
+      var matchData = new RegExp(query, "i");
+
+      var shows = this.state.initialShows.filter(function (tv) {
+        return matchData.test(tv.title);
+      });
+
+      this.setState({ shows: shows });
     },
 
     saveImages: function (e) {
