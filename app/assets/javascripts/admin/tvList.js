@@ -1,14 +1,15 @@
 (function (root) {
-  var BunnyEars, isEmpty, TvShow, TvList;
+  var BunnyEars, Admin, isEmpty, TvShow, TvList;
   var mark = JSON.parse($("#mark").html())[0],
       category = mark.category,
       counter = mark.counter;
 
   BunnyEars = root.BunnyEars = root.BunnyEars || {};
+  Admin = BunnyEars.Admin = BunnyEars.Admin || {};
   isEmpty = BunnyEars.Utils.isEmpty;
-  TvShow = BunnyEars.TvShow;
+  TvShow = Admin.TvShow;
 
-  TvList = BunnyEars.TvList = React.createClass({
+  TvList = Admin.TvList = React.createClass({
     getInitialState: function () {
       return { shows: [], errors: [] };
     },

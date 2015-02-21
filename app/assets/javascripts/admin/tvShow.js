@@ -1,7 +1,8 @@
 (function (root) {
   var BunnyEars = root.BunnyEars = root.BunnyEars || {};
+  var Admin = BunnyEars.Admin = BunnyEars.Admin || {};
 
-  var TvShow = BunnyEars.TvShow = React.createClass({
+  var TvShow = Admin.TvShow = React.createClass({
     previewImage: function (e) {
       var reader = new FileReader();
       var file = e.target.files[0];

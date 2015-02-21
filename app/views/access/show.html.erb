@@ -6,11 +6,11 @@
 </form>
 <div id="content"></div>
 
-<script type="text/jsx" src="<%= asset_path "reactManifest.js" %>"></script>
+<script type="text/jsx" src="<%= asset_path "adminManifest.js" %>"></script>
 
 <script type="text/jsx">
   $(function () {
-    var TvList = BunnyEars.TvList;
+    var TvList = BunnyEars.Admin.TvList;
     React.render(<TvList />, document.getElementById("content"));
   });
 </script>
