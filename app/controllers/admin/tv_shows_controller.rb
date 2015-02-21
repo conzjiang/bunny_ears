@@ -29,6 +29,12 @@ class Admin::TvShowsController < ApplicationController
     render json: {}
   end
 
+  def destroy
+    tv = TvShow.find(params[:id])
+    tv.destroy!
+    render json: tv
+  end
+
   private
   def tv_params
     params[:tv_show].values

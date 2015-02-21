@@ -26,6 +26,7 @@
                  value={this.state.url}
                  onChange={this.updateInput} />
           <button onClick={this.printImage}>Click</button>
+          <button onClick={this.deleteTv}>Delete</button>
         </li>
       );
     },
@@ -55,6 +56,10 @@
     printImage: function (e) {
       e.preventDefault();
       this.collectNewImage(this.state.url);
+    },
+
+    deleteTv: function () {
+      this.props.destroy(this.props.index);
     }
   });
 })(this);

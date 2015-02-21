@@ -29,8 +29,12 @@
     },
 
     render: function () {
-      var shows = this.state.shows.map(function (show) {
-        return <TvShow show={show} key={show.id} collect={this.collectImage} />;
+      var shows = this.state.shows.map(function (show, index) {
+        return <TvShow show={show}
+                       key={show.id}
+                       collect={this.collectImage}
+                       destroy={this.destroyTv}
+                       index={index} />;
       }.bind(this));
 
       var errors = this.state.errors.map(function (error) {
@@ -55,6 +59,22 @@
       for (var id in data) {
         this.imageData[id] = data[id];
       }
+    },
+
+    destroyTv: function (index) {
+      var tv = this.state.shows[index];
+
+      $.ajax({
+        type: "delete",
+        url: "admin/tv_shows/" + tv.id,
+        dataType: "json",
+        success: function () {
+          var shows = this.state.shows;
+          shows.splice(index, 1);
+
+          this.setState({ shows: shows });
+        }.bind(this)
+      });
     },
 
     addShows: function () {

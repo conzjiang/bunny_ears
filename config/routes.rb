@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'admin', to: "access#show"
 
   namespace :admin, defaults: { format: :json } do
-    resources :tv_shows, only: [:index, :create]
+    resources :tv_shows, only: [:index, :create, :destroy]
     put "tv_shows/update", to: "tv_shows#update"
   end
 
