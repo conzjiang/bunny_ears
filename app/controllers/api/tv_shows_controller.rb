@@ -4,13 +4,12 @@ class Api::TvShowsController < ApplicationController
   end
 
   def create
-    @tv_show = TvShow.new(tv_params)
-    @tv_show.save!
-    render :show
+    @tv_shows = TvShow.create!(tv_params)
+    render :index
   end
 
   private
   def tv_params
-    params.require(:tv_show).permit(:title)
+    params[:tv_show].values
   end
 end

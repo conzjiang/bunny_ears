@@ -5,7 +5,7 @@
 
   RecommendForm = BunnyEars.RecommendForm = React.createClass({
     getInitialState: function () {
-      return { query: "", results: [] };
+      return { results: [] };
     },
 
     render: function () {
@@ -17,23 +17,20 @@
       return (
         <form onSubmit={this.recommend}>
           {message}
-          <input type="text" value={this.state.query} onChange={this.update} />
+          <input type="text" ref="query" />
           <button>Find Me Something!</button>
         </form>
       );
     },
 
-    update: function (e) {
-      this.setState({ query: e.target.value });
-    },
-
     recommend: function (e) {
       e.preventDefault();
+      var query = this.refs.query.getDOMNode().value;
 
       $.ajax({
         type: "get",
         url: "http://www.tastekid.com/api/similar",
-        data: { q: this.state.query, type: "show", k: this.props.accessKey },
+        data: { q: query, type: "show", k: this.props.accessKey },
         dataType: "jsonp",
         success: function (data) {
           var results = data.Similar.Results.map(function (result) {

@@ -37,7 +37,7 @@
     },
 
     match: function (results) {
-      var shows = [];
+      var shows = [], newShows = [];
 
       results.forEach(function (result) {
         var tv;
@@ -52,23 +52,27 @@
         if (tv) {
           shows.push(tv);
         } else {
-          this.createShow(result);
+          newShows.push(result);
         }
-
       }.bind(this));
 
+      if (newShows.length) this.createShows(newShows);
       this.setState({ shows: shows });
     },
 
-    createShow: function (title) {
+    createShows: function (titles) {
+      var params = titles.map(function (title) {
+        return { title: title };
+      });
+
       $.ajax({
         type: "post",
         url: "api/tv_shows",
-        data: { tv_show: { title: title } },
+        data: { tv_show: params },
         dataType: "json",
         success: function (data) {
           this.setState({
-            initialShows: this.state.initialShows.concat([data])
+            initialShows: this.state.initialShows.concat(data)
           });
         }.bind(this)
       });
