@@ -49,11 +49,8 @@
           <button onClick={this.sort}>Sort</button>
           <input type="text" onChange={this.filter} />
           <ul>{errors}</ul>
-
-          <form onSubmit={this.saveImages} encType="multipart/form-data">
-            <ul>{shows}</ul>
-            <button ref="submit">Submit</button>
-          </form>
+          <ul>{shows}</ul>
+          <button onClick={this.saveImages} ref="submit">Submit</button>
         </div>
       );
     },
@@ -156,7 +153,6 @@
     saveImages: function (e) {
       var button;
 
-      e.preventDefault();
       if (isEmpty(this.imageData)) return;
       button = this.refs.submit.getDOMNode();
       button.disabled = true;

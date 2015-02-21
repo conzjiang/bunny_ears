@@ -43,7 +43,7 @@
         var tv;
 
         this.state.initialShows.some(function (show) {
-          if (show.title === result) {
+          if (show.title.toLowerCase() === result.toLowerCase()) {
             tv = show;
             return true;
           }
@@ -72,7 +72,7 @@
         dataType: "json",
         success: function (data) {
           this.setState({
-            initialShows: this.state.initialShows.concat(data)
+            initialShows: this.state.initialShows.concat(data.tv_shows)
           });
         }.bind(this)
       });

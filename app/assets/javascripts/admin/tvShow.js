@@ -4,11 +4,19 @@
 
   var TvShow = Admin.TvShow = React.createClass({
     getInitialState: function () {
-      return { url: "", image_url: "" };
+      return { url: "", image_url: "", title: "", editing: false };
+    },
+
+    componentDidMount: function () {
+      this.setTitle(this.props.show.title);
+    },
+
+    setTitle: function (title) {
+      this.setState({ title: title });
     },
 
     render: function () {
-      var imageTag;
+      var imageTag, title;
       var imageUrl = this.state.image_url || this.props.show.image_url;
 
       if (imageUrl) {
@@ -17,9 +25,22 @@
         imageTag = "";
       }
 
+      if (this.state.editing) {
+        title = (
+          <form onSubmit={this.save}>
+            <input type="text"
+                   value={this.state.title}
+                   onChange={this.updateTitle}
+                   onBlur={this.save} />
+          </form>
+        );
+      } else {
+        title = <strong onDoubleClick={this.edit}>{this.state.title}</strong>;
+      }
+
       return (
         <li>
-          {this.props.show.title}
+          {title}
           {imageTag}
           <input type="file" onChange={this.previewImage} />
           <input type="text"
@@ -29,6 +50,28 @@
           <button onClick={this.deleteTv}>Delete</button>
         </li>
       );
+    },
+
+    updateTitle: function (e) {
+      this.setTitle(e.target.value);
+    },
+
+    save: function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        type: "put",
+        url: "admin/tv_shows/" + this.props.show.id,
+        data: { tv_show: { title: this.state.title } },
+        dataType: "json",
+        success: function () {
+          this.setState({ editing: false });
+        }.bind(this)
+      });
+    },
+
+    edit: function (e) {
+      this.setState({ editing: true });
     },
 
     previewImage: function (e) {

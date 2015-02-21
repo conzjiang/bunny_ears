@@ -33,8 +33,11 @@
         data: { q: query, type: "show", k: this.props.accessKey },
         dataType: "jsonp",
         success: function (data) {
-          var results = data.Similar.Results.map(function (result) {
-            return result.Name;
+          var results = [];
+
+          data.Similar.Results.forEach(function (result) {
+            if (result.Type !== "show") return;
+            results.push(result.Name);
           });
 
           this.props.match(results);

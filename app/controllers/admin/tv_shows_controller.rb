@@ -22,6 +22,12 @@ class Admin::TvShowsController < ApplicationController
   end
 
   def update
+    tv = TvShow.find(params[:id])
+    tv.update!(tv_show_params)
+    render json: tv
+  end
+
+  def update_all
     params[:tv_show].each do |tv_id, image|
       TvShow.find(tv_id).update!(image: image)
     end
@@ -38,6 +44,10 @@ class Admin::TvShowsController < ApplicationController
   private
   def tv_params
     params[:tv_show].values
+  end
+
+  def tv_show_params
+    params.require(:tv_show).permit(:title)
   end
 
   def update_mark!
