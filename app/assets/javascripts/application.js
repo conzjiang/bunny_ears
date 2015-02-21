@@ -16,4 +16,3 @@
 //= require react
 //= require react-with-addons
 //= require JSXTransformer
-//= require_tree .

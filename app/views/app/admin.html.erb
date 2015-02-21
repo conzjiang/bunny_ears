@@ -1,9 +1,18 @@
 <button>Add TV shows</button>
 <div id="content"></div>
 
+<script type="text/jsx" src="<%= asset_path "reactManifest.js" %>"></script>
+
 <script type="text/jsx">
   $(function () {
-    var counter = 1;
+    var TvList = BunnyEars.TvList;
+    var counter = <%= (TvShow.count / 20) + 1 %>;
+
+    var parse = function (data) {
+      return data.results.map(function (tv) {
+        return { title: tv.name, tmdb_id: tv.id };
+      });
+    };
 
     var save = function (data) {
       $.ajax({
@@ -20,12 +29,6 @@
       });
     };
 
-    var parse = function (data) {
-      return data.results.map(function (tv) {
-        return { title: tv.name, tmdb_id: tv.id };
-      });
-    };
-
     $("button").on("click", function (e) {
       $.ajax({
         type: "get",
@@ -39,26 +42,8 @@
       });
     });
 
-    var TvList = React.createClass({
-      render: function () {
-        var shows = this.props.shows.map(function (show) {
-          return <TvShow show={show} key={show.id} />;
-        });
-
-        return <ul>{shows}</ul>;
-      }
-    });
-
-    var TvShow = React.createClass({
-      render: function () {
-        return <li>{this.props.show.title}</li>;
-      }
-    });
+    var shows = <%= TvShow.all.to_json.html_safe %>;
+    React.render(<TvList shows={shows} />, document.getElementById("content"));
   });
 </script>
 
-<ul>
-  <% TvShow.all.each do |tv| %>
-    <li><%= tv.title %> <%= tv.image.url %></li>
-  <% end %>
-</ul>
