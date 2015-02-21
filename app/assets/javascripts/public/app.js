@@ -29,9 +29,49 @@
     render: function () {
       return (
         <div>
-          <RecommendForm accessKey={this.state.key} />
+          <RecommendForm accessKey={this.state.key} match={this.match} />
+          <SearchForm filter={this.filter} />
+          <TvList shows={this.state.shows} />
         </div>
       );
+    },
+
+    match: function (results) {
+      var shows = [];
+
+      results.forEach(function (result) {
+        var tv;
+
+        this.state.initialShows.some(function (show) {
+          if (show.title === result) {
+            tv = show;
+            return true;
+          }
+        });
+
+        if (tv) {
+          shows.push(tv);
+        } else {
+          this.createShow(result);
+        }
+
+      }.bind(this));
+
+      this.setState({ shows: shows });
+    },
+
+    createShow: function (title) {
+      $.ajax({
+        type: "post",
+        url: "api/tv_shows",
+        data: { tv_show: { title: title } },
+        dataType: "json",
+        success: function (data) {
+          this.setState({
+            initialShows: this.state.initialShows.concat([data])
+          });
+        }.bind(this)
+      });
     },
 
     filter: function (query) {

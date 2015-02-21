@@ -19,8 +19,6 @@
           {message}
           <input type="text" value={this.state.query} onChange={this.update} />
           <button>Find Me Something!</button>
-
-          <ul>{results}</ul>
         </form>
       );
     },
@@ -42,7 +40,7 @@
             return result.Name;
           });
 
-          this.setState({ results: results });
+          this.props.match(results);
         }.bind(this)
       });
     }

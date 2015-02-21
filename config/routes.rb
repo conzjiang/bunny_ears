@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
-    resources :tv_shows, only: [:index]
+    resources :tv_shows, only: [:index, :create]
   end
 end
