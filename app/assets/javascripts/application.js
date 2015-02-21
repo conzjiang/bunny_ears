@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require react
-//= require react-with-addons
 //= require JSXTransformer
