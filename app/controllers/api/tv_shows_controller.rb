@@ -1,4 +1,6 @@
 class Api::TvShowsController < ApplicationController
+  before_action :require_admin
+
   def index
     @tv_shows = TvShow.order(created_at: :desc)
   end

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "app#index"
 
-  get "admin", to: "app#admin", as: "admin"
+  resource :access, only: [:new, :create, :destroy], controller: "access"
+  get 'admin', to: "access#show"
 
   namespace :api, defaults: { format: :json } do
     resources :tv_shows, only: [:index, :create]
