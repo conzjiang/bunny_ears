@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get "admin", to: "app#admin", as: "admin"
 
-  resources :tv_shows, only: [:create]
-  put "tv_shows/update", to: "tv_shows#update"
+  namespace :api, defaults: { format: :json } do
+    resources :tv_shows, only: [:index, :create]
+    put "tv_shows/update", to: "tv_shows#update"
+  end
 end

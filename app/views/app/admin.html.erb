@@ -1,4 +1,3 @@
-<button>Add TV shows</button>
 <div id="content"></div>
 
 <script type="text/jsx" src="<%= asset_path "reactManifest.js" %>"></script>
@@ -6,44 +5,10 @@
 <script type="text/jsx">
   $(function () {
     var TvList = BunnyEars.TvList;
-    var counter = <%= (TvShow.count / 20) + 1 %>;
-
-    var parse = function (data) {
-      return data.results.map(function (tv) {
-        return { title: tv.name, tmdb_id: tv.id };
-      });
-    };
-
-    var save = function (data) {
-      $.ajax({
-        type: "post",
-        url: "<%= tv_shows_url %>",
-        data: { tv_show: data },
-        dataType: "json",
-        success: function (shows) {
-          React.render(
-            <TvList shows={shows} />,
-            document.getElementById("content")
-          );
-        }
-      });
-    };
-
-    $("button").on("click", function (e) {
-      $.ajax({
-        type: "get",
-        url: "http://api.themoviedb.org/3/tv/popular",
-        data: { api_key: "<%= ENV["TMDB_KEY"] %>", page: counter },
-        dataType: "json",
-        success: function (data) {
-          save(parse(data));
-          counter++;
-        }
-      });
-    });
-
-    var shows = <%= TvShow.all.to_json.html_safe %>;
-    React.render(<TvList shows={shows} />, document.getElementById("content"));
+    React.render(<TvList />, document.getElementById("content"));
   });
 </script>
 
+<script id="mark">
+  <%= [@mark].to_json.html_safe %>
+</script>
