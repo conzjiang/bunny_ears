@@ -10,11 +10,49 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+html, body, strong, ul, li, img, button, form, input, a, main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+input {
+  display: inline-block;
+  box-sizing: content-box;
+}
+
+button {
+  background: none;
+  box-sizing: content-box;
+}
+
+input:focus, button:focus {
+  outline: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #F2F1EF;
+}
+
+ul {
+  list-style: none;
+}
+
 img {
-  width: 300px;
-  height: auto;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
 }

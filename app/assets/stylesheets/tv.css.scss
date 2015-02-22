@@ -1,0 +1,30 @@
+.cards {
+  margin: 0 5px;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 2px 5px;
+  }
+}
+
+
+img {
+  width: auto;
+  height: 150px;
+}
+
+@media (min-width: 500px) {
+  ul {
+    text-align: initial;
+  }
+
+  li {
+    display: block;
+    float: left;
+  }
+
+  img {
+    height: 250px;
+  }
+}

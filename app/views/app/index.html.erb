@@ -1,5 +1,5 @@
+<main id="content"></main>
 <a href="<%= admin_url %>">Admin</a>
-<div id="content"></div>
 
 <script type="text/jsx" src="<%= asset_path "publicManifest" %>"></script>
 
@@ -7,5 +7,11 @@
   $(function () {
     var App = BunnyEars.App;
     React.render(<App />, document.getElementById("content"));
+  });
+</script>
+
+<script>
+  $(function () {
+
   });
 </script>

@@ -1,6 +1,6 @@
 class Api::TvShowsController < ApplicationController
   def index
-    @tv_shows = TvShow.all
+    @tv_shows = TvShow.all.shuffle
   end
 
   def create

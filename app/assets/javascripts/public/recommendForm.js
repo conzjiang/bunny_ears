@@ -15,9 +15,9 @@
       });
 
       return (
-        <form onSubmit={this.recommend}>
-          {message}
-          <input type="text" ref="query" />
+        <form className="recommend" onSubmit={this.recommend}>
+          <label>{message}</label>
+          <input type="text" ref="query" placeholder="ex. Seinfeld" />
           <button>Find Me Something!</button>
         </form>
       );

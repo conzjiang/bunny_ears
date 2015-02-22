@@ -6,7 +6,9 @@
   TvShow = BunnyEars.TvShow = React.createClass({
     render: function () {
       return (
-        <li>{this.props.show.title}</li>
+        <li>
+        {this.props.show.title}
+        </li>
       );
     }
   });

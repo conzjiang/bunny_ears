@@ -49,7 +49,7 @@
           <button onClick={this.sort}>Sort</button>
           <input type="text" onChange={this.filter} />
           <ul>{errors}</ul>
-          <ul>{shows}</ul>
+          <ul className="group">{shows}</ul>
           <button onClick={this.saveImages} ref="submit">Submit</button>
         </div>
       );

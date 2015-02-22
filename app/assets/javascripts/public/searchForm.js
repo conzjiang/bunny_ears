@@ -10,8 +10,11 @@
 
     render: function () {
       return (
-        <form>
-          <input type="text" value={this.state.query} onChange={this.search} />
+        <form className="search">
+          <input type="text"
+                 value={this.state.query}
+                 onChange={this.search}
+                 placeholder="Search all TV shows" />
         </form>
       );
     },

@@ -1,9 +1,8 @@
 (function (root) {
-  var BunnyEars, RecommendForm, SearchForm, TvList;
+  var BunnyEars, Header, TvList;
 
   BunnyEars = root.BunnyEars = root.BunnyEars || {};
-  RecommendForm = BunnyEars.RecommendForm;
-  SearchForm = BunnyEars.SearchForm;
+  Header = BunnyEars.Header;
   TvList = BunnyEars.TvList;
 
   App = BunnyEars.App = React.createClass({
@@ -29,8 +28,9 @@
     render: function () {
       return (
         <div>
-          <RecommendForm accessKey={this.state.key} match={this.match} />
-          <SearchForm filter={this.filter} />
+          <Header accessKey={this.state.key}
+                  match={this.match}
+                  filter={this.filter} />
           <TvList shows={this.state.shows} />
         </div>
       );
