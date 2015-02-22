@@ -22,6 +22,12 @@ nav {
       }
     }
   }
+
+  &.admin {
+    button {
+      margin: 10px 5px;
+    }
+  }
 }
 
 a.logo {

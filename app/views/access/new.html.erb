@@ -1,5 +1,10 @@
-<form action="<%= access_url %>" method="post">
+<header>
+  <a class="logo" href="/">Bunny Ears</a>
+</header>
+
+<form class="access-form" action="<%= access_url %>" method="post">
   <%= form_auth_token %>
 
-  <input type="password" name="access[password]">
+  <label for="access_password">Admin Access</label>
+  <input id="access_password" type="password" name="access[password]">
 </form>

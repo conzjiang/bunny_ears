@@ -24,8 +24,13 @@
     },
 
     recommend: function (e) {
+      var query, button;
+
       e.preventDefault();
-      var query = this.refs.query.getDOMNode().value;
+      query = this.refs.query.getDOMNode().value;
+      button = e.target[1];
+      button.disabled = true;
+      button.innerHTML = "Searching..."
 
       $.ajax({
         type: "get",
@@ -41,6 +46,8 @@
           });
 
           this.props.match(results);
+          button.disabled = false;
+          button.innerHTML = "Find Me Something!"
         }.bind(this)
       });
     }

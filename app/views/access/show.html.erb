@@ -1,21 +1,16 @@
-<a href="<%= root_url %>">Index</a>
-<form action="<%= access_url %>" method="post">
-  <%= form_auth_token %>
-  <input type="hidden" name="_method" value="delete">
-
-  <button>Log Out</button>
-</form>
-<div id="content"></div>
+<main id="content"></main>
 
 <script type="text/jsx" src="<%= asset_path "adminManifest.js" %>"></script>
 
 <script type="text/jsx">
   $(function () {
-    var TvList = BunnyEars.Admin.TvList;
-    React.render(<TvList />, document.getElementById("content"));
+    var Dashboard = BunnyEars.Admin.Dashboard;
+    React.render(<Dashboard />, document.getElementById("content"));
   });
 </script>
 
 <script id="mark">
   <%= [@mark].to_json.html_safe %>
 </script>
+
+

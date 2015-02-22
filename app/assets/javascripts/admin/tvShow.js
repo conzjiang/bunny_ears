@@ -9,24 +9,47 @@
 
     componentDidMount: function () {
       this.setTitle(this.props.show.title);
+      this.setImage(this.props.show.image_url);
     },
 
     setTitle: function (title) {
       this.setState({ title: title });
     },
 
+    setImage: function (url) {
+      this.setState({ image_url: url });
+    },
+
     render: function () {
-      var imageTag, title;
-      var imageUrl = this.state.image_url || this.props.show.image_url;
+      return (
+        <li>
+          {this.imageTag()}
+          {this.title()}
+          <form onSubmit={this.previewImage}>
+            <input type="text"
+                   value={this.state.url}
+                   onChange={this.updateInput} />
+            <button onClick={this.previewImage}>Preview</button>
+          </form>
 
-      if (imageUrl) {
-        imageTag = <img src={imageUrl} />;
+          <button onClick={this.deleteTv}>Delete</button>
+        </li>
+      );
+    },
+
+    imageTag: function () {
+      var imageUrl;
+
+      if (imageUrl = this.state.image_url) {
+        return <img src={imageUrl} />;
       } else {
-        imageTag = "";
+        return "";
       }
+    },
 
+    title: function () {
       if (this.state.editing) {
-        title = (
+        return (
           <form onSubmit={this.save}>
             <input type="text"
                    value={this.state.title}
@@ -35,21 +58,8 @@
           </form>
         );
       } else {
-        title = <strong onDoubleClick={this.edit}>{this.state.title}</strong>;
+        return <strong onDoubleClick={this.edit}>{this.state.title}</strong>;
       }
-
-      return (
-        <li>
-          {title}
-          {imageTag}
-          <input type="file" onChange={this.previewImage} />
-          <input type="text"
-                 value={this.state.url}
-                 onChange={this.updateInput} />
-          <button onClick={this.printImage}>Click</button>
-          <button onClick={this.deleteTv}>Delete</button>
-        </li>
-      );
     },
 
     updateTitle: function (e) {
@@ -75,34 +85,27 @@
     },
 
     previewImage: function (e) {
-      var reader = new FileReader();
-      var file = e.target.files[0];
-
-      reader.onload = function (file) {
-        this.collectNewImage(file.target.result);
-      }.bind(this);
-
-      reader.readAsDataURL(file);
-    },
-
-    collectNewImage: function (newImage) {
       var imageData = {};
-      imageData[this.props.show.id] = newImage;
+      e.preventDefault();
+
+      imageData[this.props.show.id] = this.state.url;
       this.props.collect(imageData);
-      this.setState({ image_url: newImage });
+      this.setImage(this.state.url);
     },
 
     updateInput: function (e) {
       this.setState({ url: e.target.value });
     },
 
-    printImage: function (e) {
-      e.preventDefault();
-      this.collectNewImage(this.state.url);
-    },
-
     deleteTv: function () {
-      this.props.destroy(this.props.show);
+      $.ajax({
+        type: "delete",
+        url: "admin/tv_shows/" + this.props.show.id,
+        dataType: "json",
+        success: function () {
+          this.props.deleteFromList(this.props.show);
+        }.bind(this)
+      });
     }
   });
 })(this);
