@@ -22,17 +22,21 @@
 
     render: function () {
       return (
-        <li>
+        <li className="group">
           {this.imageTag()}
-          {this.title()}
-          <form onSubmit={this.previewImage}>
-            <input type="text"
-                   value={this.state.url}
-                   onChange={this.updateInput} />
-            <button onClick={this.previewImage}>Preview</button>
-          </form>
 
-          <button onClick={this.deleteTv}>Delete</button>
+          <article className="content">
+            {this.title()}
+            <form onSubmit={this.previewImage}>
+              <input type="text"
+                     value={this.state.url}
+                     onChange={this.updateInput}
+                     placeholder="Image URL" />
+              <button onClick={this.previewImage}>Preview</button>
+            </form>
+
+            <button className="delete" onClick={this.deleteTv}>Delete</button>
+          </article>
         </li>
       );
     },
@@ -43,7 +47,7 @@
       if (imageUrl = this.state.image_url) {
         return <img src={imageUrl} />;
       } else {
-        return "";
+        return <div className="block"></div>;
       }
     },
 

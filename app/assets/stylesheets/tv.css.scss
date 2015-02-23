@@ -5,9 +5,16 @@
   li {
     display: inline-block;
     margin: 2px 5px;
+    vertical-align: bottom;
+  }
+
+  .block {
+    display: block;
+    width: 100px;
+    height: 150px;
+    background: #ccc;
   }
 }
-
 
 img {
   width: auto;
@@ -15,13 +22,13 @@ img {
 }
 
 @media (min-width: 500px) {
-  ul {
+  .cards {
     text-align: initial;
-  }
 
-  li {
-    display: block;
-    float: left;
+    li {
+      display: block;
+      float: left;
+    }
   }
 
   img {

@@ -1,10 +1,9 @@
 (function (root) {
-  var isEmpty, Header, TvList, Dashboard;
+  var Header, TvList, Dashboard;
   var mark = JSON.parse($("#mark").html())[0],
       category = mark.category,
       counter = mark.counter;
 
-  isEmpty = BunnyEars.Utils.isEmpty;
   Header = BunnyEars.Admin.Header;
   TvList = BunnyEars.Admin.TvList;
 
@@ -40,7 +39,8 @@
                   sort={this.sort}
                   filter={this.filter} />
           <ul>{errors}</ul>
-          <TvList shows={this.state.shows} />
+          <TvList shows={this.state.shows}
+                  deleteFromList={this.deleteFromList} />
         </div>
       );
     },
@@ -91,5 +91,17 @@
       this.setState({ shows: shows });
     },
 
+    deleteFromList: function (tv) {
+      var newState = {};
+
+      ["initialShows", "shows"].forEach(function (key) {
+        var list = this.state[key];
+        var index = list.indexOf(tv);
+        list.splice(index, 1);
+        newState[list] = list;
+      }.bind(this));
+
+      this.setState(newState);
+    }
   });
 })(this);

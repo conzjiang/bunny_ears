@@ -31,6 +31,7 @@ input {
 button {
   background: none;
   box-sizing: content-box;
+  cursor: pointer;
 }
 
 input:focus, button:focus {

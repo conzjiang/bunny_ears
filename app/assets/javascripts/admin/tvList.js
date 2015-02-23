@@ -1,8 +1,10 @@
 (function (root) {
-  var Admin, TvShow, TvList;
+  var isEmpty, Admin, TvShow, UploadButton, TvList;
 
+  isEmpty = BunnyEars.Utils.isEmpty;
   Admin = BunnyEars.Admin;
   TvShow = Admin.TvShow;
+  UploadButton = Admin.UploadButton;
 
   TvList = Admin.TvList = React.createClass({
     componentDidMount: function () {
@@ -14,14 +16,14 @@
         return <TvShow show={show}
                        key={show.id}
                        collect={this.collectImage}
-                       deleteFromList={this.deleteFromList} />;
+                       deleteFromList={this.props.deleteFromList} />;
       }.bind(this));
 
       return (
         <div>
-          <button ref="submit" onClick={this.saveImages}>Upload</button>
-          <ul className="group">{shows}</ul>
-          <button ref="submit" onClick={this.saveImages}>Upload</button>
+          <UploadButton upload={this.saveImages} />
+          <ul className="admin">{shows}</ul>
+          <UploadButton upload={this.saveImages} />
         </div>
       );
     },
@@ -32,24 +34,11 @@
       }
     },
 
-    deleteFromList: function (tv) {
-      var newState = {};
-
-      ["initialShows", "shows"].forEach(function (key) {
-        var list = this.state[key];
-        var index = list.indexOf(tv);
-        list.splice(index, 1);
-        newState[list] = list;
-      }.bind(this));
-
-      this.setState(newState);
-    },
-
-    saveImages: function () {
+    saveImages: function (e) {
       var button;
 
       if (isEmpty(this.imageData)) return;
-      button = this.refs.submit.getDOMNode();
+      button = e.target;
       button.disabled = true;
       button.innerHTML = "Uploading...";
 
@@ -60,7 +49,7 @@
         success: function () {
           setTimeout(function () {
             button.disabled = false;
-            button.innerHTML = "Upload";
+            button.innerHTML = "Upload Images";
           }, 1000);
         }
       });

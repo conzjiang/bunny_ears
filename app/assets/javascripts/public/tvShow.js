@@ -7,9 +7,19 @@
     render: function () {
       return (
         <li>
-        {this.props.show.title}
+          {this.imageBlock()}
         </li>
       );
+    },
+
+    imageBlock: function () {
+      var imageUrl;
+
+      if (imageUrl = this.props.show.image_url) {
+        return <img src={imageUrl} />;
+      } else {
+        return <strong className="block">{this.props.show.title}</strong>;
+      }
     }
   });
 })(this);

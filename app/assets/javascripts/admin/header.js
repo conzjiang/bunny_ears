@@ -7,15 +7,17 @@
   Header = Admin.Header = React.createClass({
     render: function () {
       return (
-        <header>
-          <nav className="admin">
+        <header className="admin-header">
+          <nav className="admin-nav">
             <a className="logo" href="/">Bunny Ears</a>
             <button onClick={this.addShows}>Add</button>
             <button onClick={this.props.sort}>Sort</button>
             <LogOut />
           </nav>
 
-          <input type="text" onChange={this.props.filter} />
+          <input type="text"
+                 onChange={this.props.filter}
+                 placeholder="Filter shows" />
         </header>
       );
     },
