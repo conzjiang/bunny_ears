@@ -34,21 +34,47 @@ ul.admin {
     margin-left: 10px;
   }
 
-  form {
-    margin: 10px 0;
+  strong, p {
+    display: block;
+    cursor: default;
   }
 
-  input {
-    width: calc(100% - 89px);
-    padding: 5px 10px;
-    font-size: 16px;
+  input, textarea {
+    margin: 5px 0;
+    padding: 5px;
+    font-size: 12px;
     text-align: left;
     border-bottom: 0;
+
+    &.title {
+      font-size: 16px;
+    }
+
+    &.title, &.description {
+      width: calc(100% - 20px);
+    }
+
+    &.start_year, &.end_year {
+      width: 50px;
+    }
+
+    &.image-url {
+      width: calc(100% - 89px);
+    }
+  }
+
+  textarea {
+    height: 70px - 10px;
+  }
+
+  .years,
+  .description {
+    font-size: 12px;
   }
 
   button {
-    margin: 0;
-    padding: 7px 10px;
+    margin: 5px 0;
+    padding: 5px 10px;
     font-size: 12px;
     vertical-align: bottom;
   }

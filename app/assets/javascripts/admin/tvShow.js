@@ -1,40 +1,40 @@
 (function (root) {
-  var BunnyEars = root.BunnyEars = root.BunnyEars || {};
-  var Admin = BunnyEars.Admin = BunnyEars.Admin || {};
+  var isEmpty, disable, enable, Admin, Editable, ImageForm, TvShow;
 
-  var TvShow = Admin.TvShow = React.createClass({
+  isEmpty = BunnyEars.Utils.isEmpty;
+  disable = BunnyEars.Utils.disable;
+  enable = BunnyEars.Utils.enable;
+  Admin = BunnyEars.Admin;
+  Editable = Admin.Editable;
+  ImageForm = Admin.ImageForm;
+
+  TvShow = Admin.TvShow = React.createClass({
     getInitialState: function () {
-      return { url: "", image_url: "", title: "", editing: false };
+      return { show: {}, image_url: "" };
     },
 
     componentDidMount: function () {
-      this.setTitle(this.props.show.title);
-      this.setImage(this.props.show.image_url);
-    },
-
-    setTitle: function (title) {
-      this.setState({ title: title });
-    },
-
-    setImage: function (url) {
-      this.setState({ image_url: url });
+      this.setState({
+        show: this.props.show,
+        image_url: this.props.show.image_url
+      });
     },
 
     render: function () {
+      // componentDidMount to run only after show is fetched
+      var editable;
+      if (!isEmpty(this.state.show)) {
+        editable = <Editable show={this.state.show} />;
+      }
+
       return (
         <li className="group">
           {this.imageTag()}
 
           <article className="content">
-            {this.title()}
-            <form onSubmit={this.previewImage}>
-              <input type="text"
-                     value={this.state.url}
-                     onChange={this.updateInput}
-                     placeholder="Image URL" />
-              <button>Preview</button>
-            </form>
-
+            {editable}
+            <ImageForm setImage={this.setImage} />
+            <button onClick={this.getInfo}>Get Info</button>
             <button className="delete" onClick={this.deleteTv}>Delete</button>
           </article>
         </li>
@@ -51,54 +51,53 @@
       }
     },
 
-    title: function () {
-      if (this.state.editing) {
-        return (
-          <form onSubmit={this.save}>
-            <input type="text"
-                   value={this.state.title}
-                   onChange={this.updateTitle}
-                   onBlur={this.save} />
-          </form>
-        );
-      } else {
-        return <strong onDoubleClick={this.edit}>{this.state.title}</strong>;
-      }
+    setImage: function (imageUrl) {
+      var imageData = {};
+      imageData[this.props.show.id] = imageUrl;
+      this.props.collect(imageData);
+      this.setState({ image_url: imageUrl });
     },
 
-    updateTitle: function (e) {
-      this.setTitle(e.target.value);
-    },
+    getInfo: function (e) {
+      var button = e.target;
 
-    save: function (e) {
-      e.preventDefault();
+      disable(button, "Fetching...");
 
       $.ajax({
-        type: "put",
-        url: "admin/tv_shows/" + this.props.show.id,
-        data: { tv_show: { title: this.state.title } },
+        type: "get",
+        url: "http://www.omdbapi.com",
+        data: {
+          t: this.state.show.title,
+          type: "series",
+          plot: "short",
+          r: "json"
+        },
         dataType: "json",
-        success: function () {
-          this.setState({ editing: false });
+        success: function (data) {
+          if (data.Response === "False") {
+            button.innerHTML = "Error :(";
+            setTimeout(enable.bind(null, button, "Get Info"), 1000);
+            return;
+          }
+
+          this.setAttrs(data);
+          enable(button, "Get Info");
         }.bind(this)
       });
     },
 
-    edit: function (e) {
-      this.setState({ editing: true });
-    },
+    setAttrs: function (data) {
+      var show = this.props.show,
+          years = data.Year.split("–");
 
-    previewImage: function (e) {
-      var imageData = {};
-      e.preventDefault();
+      $.extend(show, {
+        start_year: years[0],
+        end_year: years[1],
+        description: data.Plot,
+        openEdit: true
+      });
 
-      imageData[this.props.show.id] = this.state.url;
-      this.props.collect(imageData);
-      this.setImage(this.state.url);
-    },
-
-    updateInput: function (e) {
-      this.setState({ url: e.target.value });
+      this.setState({ show: show });
     },
 
     deleteTv: function () {

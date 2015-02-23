@@ -3,6 +3,8 @@
 //= require admin/logOut
 //= require admin/header
 //= require admin/uploadButton
+//= require admin/editable
+//= require admin/imageForm
 //= require admin/tvShow
 //= require admin/tvList
 //= require admin/dashboard

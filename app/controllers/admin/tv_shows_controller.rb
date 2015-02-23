@@ -47,7 +47,12 @@ class Admin::TvShowsController < ApplicationController
   end
 
   def tv_show_params
-    params.require(:tv_show).permit(:title)
+    params.require(:tv_show).permit(
+      :title,
+      :description,
+      :start_year,
+      :end_year
+    )
   end
 
   def update_mark!

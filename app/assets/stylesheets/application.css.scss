@@ -16,14 +16,14 @@
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
-html, body, strong, ul, li, img, button, form, input, a, main {
+html, body, strong, ul, li, img, button, form, input, a, main, textarea, p {
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
 }
 
-input {
+input, textarea {
   display: inline-block;
   box-sizing: content-box;
 }
@@ -34,7 +34,9 @@ button {
   cursor: pointer;
 }
 
-input:focus, button:focus {
+input:focus,
+textarea:focus,
+button:focus {
   outline: 0;
 }
 
