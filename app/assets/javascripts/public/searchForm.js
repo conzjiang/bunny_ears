@@ -10,13 +10,22 @@
 
     render: function () {
       return (
-        <form className="search">
+        <form className="search" onSubmit={this.doNothing}>
           <input type="text"
                  value={this.state.query}
+                 onFocus={this.select}
                  onChange={this.search}
                  placeholder="Search all TV shows" />
         </form>
       );
+    },
+
+    doNothing: function (e) {
+      e.preventDefault();
+    },
+
+    select: function (e) {
+      e.target.select();
     },
 
     search: function (e) {

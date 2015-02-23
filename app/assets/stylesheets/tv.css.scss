@@ -1,3 +1,5 @@
+@import "variables";
+
 .cards {
   margin: 0 5px;
   text-align: center;
@@ -5,7 +7,7 @@
   li {
     display: inline-block;
     margin: 2px 5px;
-    vertical-align: bottom;
+    vertical-align: top;
   }
 
   .block {
@@ -21,13 +23,40 @@ img {
   height: 150px;
 }
 
+.expand {
+  height: 500px;
+
+  .image-wrapper:after {
+    content: "";
+    position: relative;
+    left: 50%;
+    margin-left: -20px;
+    display: block;
+    width: 0;
+    border-top: 0;
+    border-bottom: 20px solid $main_color;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+
+  article {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 300px;
+    color: #fff;
+    background: $main_color;
+  }
+}
+
 @media (min-width: 500px) {
   .cards {
-    text-align: initial;
+    width: 90%;
+    margin: auto;
 
-    li {
-      display: block;
-      float: left;
+    .block {
+      width: 150px;
+      height: 250px;
     }
   }
 

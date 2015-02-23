@@ -9,7 +9,7 @@
     },
 
     render: function () {
-      var message = "I'm looking for a series like";
+      var message = "I want to watch something like";
       var results = this.state.results.map(function (result) {
         return <li>{result}</li>;
       });
@@ -17,7 +17,10 @@
       return (
         <form className="recommend" onSubmit={this.recommend}>
           <label>{message}</label>
-          <input type="text" ref="query" placeholder="ex. Seinfeld" />
+          <input type="text"
+                 ref="query"
+                 onFocus={this.select}
+                 placeholder="ex. Seinfeld" />
           <button>Find Me Something!</button>
         </form>
       );
@@ -50,6 +53,10 @@
           button.innerHTML = "Find Me Something!"
         }.bind(this)
       });
+    },
+
+    select: function (e) {
+      e.target.select();
     }
   });
 })(this);

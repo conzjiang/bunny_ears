@@ -7,7 +7,9 @@
     render: function () {
       return (
         <li>
-          {this.imageBlock()}
+          <div className="image-wrapper">{this.imageBlock()}</div>
+          <article>
+          </article>
         </li>
       );
     },
@@ -16,7 +18,7 @@
       var imageUrl;
 
       if (imageUrl = this.props.show.image_url) {
-        return <img src={imageUrl} />;
+        return <img className="block" src={imageUrl} />;
       } else {
         return <strong className="block">{this.props.show.title}</strong>;
       }

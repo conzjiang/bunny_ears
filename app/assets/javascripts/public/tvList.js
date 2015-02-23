@@ -10,7 +10,7 @@
         return <TvShow show={tv} key={tv.id} />;
       });
 
-      return <ul className="cards">{shows}</ul>;
+      return <ul className="cards group">{shows}</ul>;
     }
   });
 })(this);

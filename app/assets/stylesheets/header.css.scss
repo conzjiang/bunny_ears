@@ -4,32 +4,6 @@ header {
   text-align: center;
 }
 
-nav {
-  li {
-    float: left;
-    width: 50%;
-
-    a {
-      display: block;
-      padding: 10px 0;
-      text-decoration: none;
-      color: #000;
-      background: #fff;
-      border-bottom: 3px solid #ccc;
-
-      &.selected {
-        border-color: $main_color;
-      }
-    }
-  }
-
-  &.admin-nav {
-    button {
-      margin: 10px 5px;
-    }
-  }
-}
-
 a.logo {
   display: block;
   width: 100%;
@@ -40,10 +14,44 @@ a.logo {
   background: $main_color;
 }
 
+nav {
+  li {
+    float: left;
+    width: 50%;
+  }
+
+  a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    border-bottom: 3px solid #ccc;
+
+    &.selected {
+      border-color: $main_color;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  a.logo {
+    font-size: 36px;
+  }
+
+  nav {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+  }
+}
+
 .header-form {
   margin: 30px 0;
 
   &.Recommend {
+    font-size: 20px;
+
     .recommend {
       display: block;
     }
@@ -60,6 +68,27 @@ a.logo {
 
     .recommend {
       display: none;
+    }
+  }
+
+  @media (min-width: 500px) {
+    position: relative;
+    height: 140px;
+    margin-bottom: 50px;
+
+    &.Recommend {
+      font-size: 28px;
+    }
+
+    .search {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input {
+      font-size: 28px;
     }
   }
 }

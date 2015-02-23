@@ -32,7 +32,7 @@
                      value={this.state.url}
                      onChange={this.updateInput}
                      placeholder="Image URL" />
-              <button onClick={this.previewImage}>Preview</button>
+              <button>Preview</button>
             </form>
 
             <button className="delete" onClick={this.deleteTv}>Delete</button>

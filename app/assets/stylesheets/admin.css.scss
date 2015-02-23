@@ -2,6 +2,12 @@
   margin-bottom: 30px;
 }
 
+.admin-nav {
+  button {
+    margin: 10px 5px;
+  }
+}
+
 ul.admin {
   li {
     width: calc(100% - 40px);

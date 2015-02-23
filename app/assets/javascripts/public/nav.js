@@ -1,7 +1,5 @@
 (function (root) {
-  var BunnyEars, Nav;
-
-  BunnyEars = root.BunnyEars = root.BunnyEars || {};
+  var Nav;
 
   Nav = BunnyEars.Nav = React.createClass({
     getInitialState: function () {
@@ -10,21 +8,18 @@
 
     render: function () {
       return (
-        <nav>
-          <a className="logo" href="/">Bunny Ears</a>
-          <ul className="group">
-            <li>
-              <a className={this.state.recommendClass}
-                 onClick={this.setForm}
-                 href="#">Recommend</a>
-            </li>
-            <li>
-              <a className={this.state.searchClass}
-                 onClick={this.setForm}
-                 href="#">Search</a>
-            </li>
-          </ul>
-        </nav>
+        <ul className="group">
+          <li>
+            <a className={this.state.recommendClass}
+               onClick={this.setForm}
+               href="#">Recommend</a>
+          </li>
+          <li>
+            <a className={this.state.searchClass}
+               onClick={this.setForm}
+               href="#">Search</a>
+          </li>
+        </ul>
       );
     },
 
