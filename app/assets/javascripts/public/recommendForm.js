@@ -1,7 +1,8 @@
 (function (root) {
-  var BunnyEars, RecommendForm;
+  var disable, enable, RecommendForm;
 
-  BunnyEars = root.BunnyEars = root.BunnyEars || {};
+  disable = BunnyEars.Utils.disable;
+  enable = BunnyEars.Utils.enable;
 
   RecommendForm = BunnyEars.RecommendForm = React.createClass({
     getInitialState: function () {
@@ -32,8 +33,7 @@
       e.preventDefault();
       query = this.refs.query.getDOMNode().value;
       button = e.target[1];
-      button.disabled = true;
-      button.innerHTML = "Searching..."
+      disable(button, "Searching...");
 
       $.ajax({
         type: "get",
@@ -41,18 +41,21 @@
         data: { q: query, type: "show", k: this.props.accessKey },
         dataType: "jsonp",
         success: function (data) {
-          var results = [];
-
-          data.Similar.Results.forEach(function (result) {
-            if (result.Type !== "show") return;
-            results.push(result.Name);
-          });
-
-          this.props.match(results);
-          button.disabled = false;
-          button.innerHTML = "Find Me Something!"
+          this.filterResults(data);
+          enable(button, "Find Me Something!");
         }.bind(this)
       });
+    },
+
+    filterResults: function (data) {
+      var results = [];
+
+      data.Similar.Results.forEach(function (result) {
+        if (result.Type !== "show") return;
+        results.push(result.Name);
+      });
+
+      this.props.match(results);
     },
 
     select: function (e) {

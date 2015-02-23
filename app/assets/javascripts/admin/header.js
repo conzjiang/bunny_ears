@@ -8,8 +8,8 @@
     render: function () {
       return (
         <header className="admin-header">
+          <a className="logo" href="/">Bunny Ears</a>
           <nav className="admin-nav">
-            <a className="logo" href="/">Bunny Ears</a>
             <button onClick={this.addShows}>Add</button>
             <button onClick={this.props.sort}>Sort</button>
             <LogOut />

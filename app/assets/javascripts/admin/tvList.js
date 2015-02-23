@@ -2,6 +2,8 @@
   var isEmpty, Admin, TvShow, UploadButton, TvList;
 
   isEmpty = BunnyEars.Utils.isEmpty;
+  disable = BunnyEars.Utils.disable;
+  enable = BunnyEars.Utils.enable;
   Admin = BunnyEars.Admin;
   TvShow = Admin.TvShow;
   UploadButton = Admin.UploadButton;
@@ -29,9 +31,7 @@
     },
 
     collectImage: function (data) {
-      for (var id in data) {
-        this.imageData[id] = data[id];
-      }
+      $.extend(this.imageData, data);
     },
 
     saveImages: function (e) {
@@ -39,18 +39,14 @@
 
       if (isEmpty(this.imageData)) return;
       button = e.target;
-      button.disabled = true;
-      button.innerHTML = "Uploading...";
+      disable(button, "Uploading...");
 
       $.ajax({
         type: "put",
         url: "admin/tv_shows/update",
         data: { tv_show: this.imageData },
         success: function () {
-          setTimeout(function () {
-            button.disabled = false;
-            button.innerHTML = "Upload Images";
-          }, 1000);
+          enable(button, "Upload Images");
         }
       });
     }

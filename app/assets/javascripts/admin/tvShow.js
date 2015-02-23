@@ -60,7 +60,6 @@
 
     getInfo: function (e) {
       var button = e.target;
-
       disable(button, "Fetching...");
 
       $.ajax({

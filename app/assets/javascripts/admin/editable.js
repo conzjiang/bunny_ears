@@ -1,6 +1,7 @@
 (function () {
-  var Admin, Editable;
+  var isEmpty, Admin, Editable;
 
+  isEmpty = BunnyEars.Utils.isEmpty;
   Admin = BunnyEars.Admin;
 
   Editable = Admin.Editable = React.createClass({
@@ -96,11 +97,17 @@
     },
 
     save: function (e) {
-      var attr, data = {};
+      var data, attr;
       e.preventDefault();
 
+      data = {};
       attr = e.target.className;
       data[attr] = this.state[attr];
+
+      if (!data[attr]) {
+        this.setState({ editing: false });
+        return;
+      }
 
       $.ajax({
         type: "put",
@@ -116,6 +123,10 @@
     edit: function (e) {
       var className = e.target.className || e.target.parentElement.className;
       this.setState({ editing: className });
+
+      setTimeout(function () {
+        $("." + className).focus().select();
+      }, 0);
     }
   });
 })();

@@ -18,7 +18,7 @@
       var imageUrl;
 
       if (imageUrl = this.props.show.image_url) {
-        return <img className="block" src={imageUrl} />;
+        return <img src={imageUrl} />;
       } else {
         return <strong className="block">{this.props.show.title}</strong>;
       }
