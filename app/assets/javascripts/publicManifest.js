@@ -1,5 +1,6 @@
 //= require bunnyEars
 //= require utils
+//= require public/tvArticle
 //= require public/tvShow
 //= require public/tvList
 //= require public/nav

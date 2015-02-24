@@ -16,7 +16,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
-html, body, strong, ul, li, img, button, form, input, a, main, textarea, p {
+html, body, strong, ul, li, img, button, form, input, a, main, textarea, p, h1 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -51,6 +51,12 @@ ul {
 
 img {
   display: block;
+}
+
+h1 {
+  display: block;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .group:after {

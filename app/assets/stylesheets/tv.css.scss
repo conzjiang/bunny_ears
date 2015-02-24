@@ -1,30 +1,37 @@
 @import "variables";
 
+$tv_card_size: 150px;
+
 .cards {
   margin: 0 5px;
   text-align: center;
 
   li {
     display: inline-block;
-    margin: 2px 5px;
+    margin: 5px;
     vertical-align: top;
+    cursor: pointer;
   }
 
   .block {
     display: block;
     width: 100px;
-    height: 150px;
+    height: $tv_card_size;
     background: #ccc;
+  }
+
+  article {
+    display: none;
   }
 }
 
 img {
   width: auto;
-  height: 150px;
+  height: $tv_card_size;
 }
 
 .expand {
-  height: 500px;
+  height: 490px;
 
   .image-wrapper:after {
     content: "";
@@ -34,18 +41,56 @@ img {
     display: block;
     width: 0;
     border-top: 0;
-    border-bottom: 20px solid $main_color;
+    border-bottom: 20px solid $dark_main_color;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
   }
 
   article {
-    width: 100%;
+    display: block;
+    width: calc(100% - 40px);
     position: absolute;
     left: 0;
-    height: 300px;
+    height: (490px - $tv_card_size - 20px - 10px) - 60px;
+    padding: 30px 20px;
+    text-align: left;
     color: #fff;
-    background: $main_color;
+    background: $dark_main_color;
+    cursor: default;
+  }
+}
+
+$article_image_size: 100%;
+
+.tv-left {
+  float: left;
+  width: 33%;
+  margin-right: 20px;
+
+  img {
+    width: $article_image_size;
+    height: auto;
+  }
+
+  .image-block {
+    width: $article_image_size;
+    height: 180px;
+    background: #ccc;
+  }
+}
+
+.content-right {
+  float: left;
+  width: calc(67% - 20px);
+  height: 100%;
+
+  strong {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  p {
+    line-height: 1.4;
   }
 }
 
@@ -62,5 +107,13 @@ img {
 
   img {
     height: 250px;
+  }
+
+  .expand {
+    height: 700px;
+
+    article {
+      height: 410px;
+    }
   }
 }
