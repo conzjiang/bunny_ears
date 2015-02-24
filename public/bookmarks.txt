@@ -1,3 +1,0 @@
-popular 18
-airing_today 1
-on_the_air 4

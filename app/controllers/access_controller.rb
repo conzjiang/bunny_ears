@@ -30,7 +30,7 @@ class AccessController < ApplicationController
   end
 
   def counter(category)
-    MarkReader.new[category]
+    MarkReader.new[category] || 1
   end
 
   def grant_access!
