@@ -1,5 +1,9 @@
 .admin-header {
   margin-bottom: 30px;
+
+  input {
+    max-width: 600px;
+  }
 }
 
 .admin-nav {
@@ -9,6 +13,10 @@
 }
 
 ul.admin {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+
   li {
     width: calc(100% - 40px);
     padding: 10px 20px;
