@@ -8,7 +8,7 @@ a.logo {
   display: block;
   width: 100%;
   padding: 10px 0;
-  font-size: 24px;
+  font-size: $logo_size_small;
   text-decoration: none;
   color: #fff;
   background: $main_color;
@@ -36,7 +36,7 @@ nav {
 
 @media (min-width: 500px) {
   a.logo {
-    font-size: 36px;
+    font-size: $logo_size_large;
   }
 
   nav {

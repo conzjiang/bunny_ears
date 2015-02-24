@@ -1,5 +1,5 @@
 (function (root) {
-  var Utils, setDisabled, totalHeight, ellipse;
+  var Utils, setDisabled, articleOffset, totalHeight, ellipse;
 
   Utils = BunnyEars.Utils;
 
@@ -20,10 +20,20 @@
     setDisabled(button, false, text);
   };
 
+  articleOffset = function (el) {
+    var newOffset, elTop = $(el).offset().top;
+
+    if ($(window).width() >= 500) {
+      newOffset = elTop + 200;
+    } else {
+      newOffset = elTop - 10;
+    }
+
+    return newOffset + "px";
+  };
+
   Utils.scrollTo = function (el) {
-    $("body").animate({
-      scrollTop: $(el).offset().top - 10 + "px"
-    }, "fast");
+    $("body").animate({ scrollTop: articleOffset(el) }, "fast");
   };
 
   totalHeight = function ($els) {
