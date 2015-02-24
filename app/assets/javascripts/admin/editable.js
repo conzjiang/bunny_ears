@@ -2,6 +2,8 @@
   var isEmpty, Admin, Editable;
 
   isEmpty = BunnyEars.Utils.isEmpty;
+  disable = BunnyEars.Utils.disable;
+  enable = BunnyEars.Utils.enable;
   Admin = BunnyEars.Admin;
 
   Editable = Admin.Editable = React.createClass({
@@ -22,72 +24,93 @@
       return (
         <form onSubmit={this.save}>
           {this.title()}
-          {this.years()}
+          {this.getInfoButton()}
+          <strong>{this.startYear()} {"-"} {this.endYear()}</strong>
           {this.description()}
         </form>
       );
     },
 
     title: function () {
+      var title = this.state.title;
+
       if (this.state.editing === "title") {
         return (
           <input type="text"
                  className="title"
-                 value={this.state.title}
+                 value={title}
                  onChange={this.updateInput}
                  onBlur={this.save} />
         );
       } else {
         return <strong onDoubleClick={this.edit}
-                       className="title">{this.state.title}</strong>;
+                       className="title">{title}</strong>;
       }
     },
 
-    years: function () {
-      if (this.state.editing === "years") {
-        var separator = "-";
+    getInfoButton: function () {
+      if (!this.state.description) {
         return (
-          <div>
-            <input type="number"
-                   className="start_year"
-                   value={this.state.start_year}
-                   onChange={this.updateInput}
-                   onBlur={this.save} />
-           {separator}
-            <input type="number"
-                   className="end_year"
-                   value={this.state.end_year}
-                   onChange={this.updateInput}
-                   onBlur={this.save} />
-          </div>
+          <button type="button" onClick={this.getInfo}>Get Info</button>
+        );
+      }
+    },
+
+    startYear: function () {
+      return this.year("start_year");
+    },
+
+    endYear: function () {
+      return this.year("end_year");
+    },
+
+    year: function (year) {
+      var stateYear = this.state[year];
+
+      if (this.state.editing === year) {
+        return (
+          <input type="number"
+                 ref={year}
+                 className={year}
+                 value={stateYear}
+                 onChange={this.updateInput}
+                 onBlur={this.save} />
         );
       } else {
         return (
-          <strong onDoubleClick={this.edit}
-                  className="years">
-            {this.state.start_year || "start"} - {this.state.end_year || "end"}
-          </strong>
+          <span onDoubleClick={this.edit} className={year}>
+            {stateYear || year.slice(0, year.length - 5)}
+          </span>
         );
       }
     },
 
     description: function () {
-      if (this.state.editing === "description" || this.props.show.openEdit) {
-        delete this.props.show.openEdit;
+      var description = this.state.description;
 
+      if (this.state.editing === "description") {
         return (
           <textarea className="description"
-                    value={this.state.description}
+                    ref="description"
+                    value={description}
                     onChange={this.updateInput}
-                    onBlur={this.save}>{this.state.description}</textarea>
+                    onBlur={this.save} />
         );
       } else {
         return (
           <p onDoubleClick={this.edit} className="description">
-            {this.state.description || "description"}
+            {description || "description"}
           </p>
         );
       }
+    },
+
+    focusInput: function (ref) {
+      setTimeout(function () {
+        var node = this.refs[ref].getDOMNode();
+        node.focus();
+        node.select();
+      }.bind(this), 0);
     },
 
     updateInput: function (e) {
@@ -97,22 +120,12 @@
     },
 
     save: function (e) {
-      var data, attr;
       e.preventDefault();
-
-      data = {};
-      attr = e.target.className;
-      data[attr] = this.state[attr];
-
-      if (!data[attr]) {
-        this.setState({ editing: false });
-        return;
-      }
 
       $.ajax({
         type: "put",
         url: "admin/tv_shows/" + this.props.show.id,
-        data: { tv_show: data },
+        data: { tv_show: this.state },
         dataType: "json",
         success: function () {
           this.setState({ editing: false });
@@ -120,13 +133,50 @@
       });
     },
 
-    edit: function (e) {
-      var className = e.target.className || e.target.parentElement.className;
-      this.setState({ editing: className });
+    getInfo: function (e) {
+      var button = e.target;
+      disable(button, "Fetching...");
 
-      setTimeout(function () {
-        $("." + className).focus().select();
-      }, 0);
+      $.ajax({
+        type: "get",
+        url: "http://www.omdbapi.com",
+        data: {
+          t: this.props.show.title,
+          type: "series",
+          plot: "short",
+          r: "json"
+        },
+        dataType: "json",
+        success: function (data) {
+          if (data.Response === "False") {
+            button.innerHTML = "Error :(";
+            setTimeout(enable.bind(null, button, "Get Info"), 1000);
+            return;
+          }
+
+          this.setAttrs(data);
+          this.focusInput("description");
+          enable(button, "Get Info");
+        }.bind(this)
+      });
+    },
+
+    setAttrs: function (data) {
+      var show = this.props.show,
+          years = data.Year.split("–");
+
+      this.setState({
+        start_year: years[0],
+        end_year: years[1],
+        description: data.Plot,
+        editing: "description"
+      });
+    },
+
+    edit: function (e) {
+      var attr = e.target.className;
+      this.setState({ editing: attr });
+      this.focusInput(attr);
     }
   });
 })();
