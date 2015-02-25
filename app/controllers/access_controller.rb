@@ -15,8 +15,7 @@ class AccessController < ApplicationController
   end
 
   def show
-    category = "on_the_air"
-    @mark = { category: category, counter: counter(category) }
+    @marks = marks
   end
 
   def destroy
@@ -29,8 +28,8 @@ class AccessController < ApplicationController
     params.require(:access).permit(:password)
   end
 
-  def counter(category)
-    MarkReader.new[category] || 1
+  def marks
+    MarkReader.new.marks
   end
 
   def grant_access!

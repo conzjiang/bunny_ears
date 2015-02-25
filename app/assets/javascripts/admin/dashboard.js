@@ -1,8 +1,6 @@
 (function (root) {
   var Header, TvList, Dashboard;
-  var mark = JSON.parse($("#mark").html())[0],
-      category = mark.category,
-      counter = mark.counter;
+  var marks = JSON.parse($("#mark").html())[0];
 
   Header = BunnyEars.Admin.Header;
   TvList = BunnyEars.Admin.TvList;
@@ -23,41 +21,63 @@
             shows: data.tv_shows
           });
 
-          this.key = data.key;
+          this.accessKey = data.key;
         }.bind(this)
       });
     },
 
     render: function () {
-      var errors = this.state.errors.map(function (error) {
-        return <li>{error}</li>;
+      var errors = this.state.errors.map(function (error, i) {
+        return <li key={"error" + i}>{error}</li>;
       });
 
       return (
         <div>
-          <Header createShows={this.createShows}
+          <Header addShows={this.addShows}
                   sort={this.sort}
                   filter={this.filter} />
-          <ul>{errors}</ul>
+          <ul className="errors">{errors}</ul>
           <TvList shows={this.state.shows}
                   deleteFromList={this.deleteFromList} />
         </div>
       );
     },
 
-    createShows: function (data) {
-      var newMark = {
-        category: category,
-        counter: ++counter
-      };
+    addShows: function (category) {
+      var counter = marks[category] || 1;
+      var newMark = {};
+      newMark[category] = counter;
 
+      $.ajax({
+        type: "get",
+        url: "http://api.themoviedb.org/3/tv/" + category,
+        data: { api_key: this.accessKey, page: counter },
+        dataType: "json",
+        success: function (data) {
+          var serializedData = this.parseData(data.results);
+          this.createShows({
+            tv_show: serializedData,
+            mark: newMark
+          });
+        }.bind(this)
+      });
+    },
+
+    parseData: function (data) {
+      return data.map(function (tv) {
+        return { tmdb_id: tv.id, title: tv.name };
+      });
+    },
+
+    createShows: function (tvData) {
       $.ajax({
         type: "post",
         url: "admin/tv_shows",
-        data: { tv_show: data, mark: newMark },
+        data: tvData,
         dataType: "json",
         success: function (data) {
           this.setState({
+            initialShows: data.tv_shows,
             shows: data.tv_shows,
             errors: data.errors
           });

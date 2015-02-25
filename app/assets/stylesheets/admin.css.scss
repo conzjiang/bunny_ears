@@ -8,7 +8,34 @@
 
 .admin-nav {
   button {
+    position: relative;
     margin: 10px 5px;
+  }
+
+  .selections {
+    display: none;
+    position: absolute;
+    top: 39px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+    color: #000;
+    background: #fff;
+    box-shadow: 1px 1px 3px #ccc;
+    z-index: 1;
+
+    li {
+      display: block;
+      padding: 5px 10px;
+    }
+
+    li:hover {
+      background: #ccc;
+    }
+  }
+
+  button:hover .selections {
+    display: block;
   }
 }
 
@@ -89,7 +116,7 @@ ul.admin {
   }
 
   .delete {
-    background: #D24D57;
+    background: $error_red;
   }
 
   strong {

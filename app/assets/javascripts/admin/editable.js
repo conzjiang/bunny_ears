@@ -37,6 +37,7 @@
       if (this.state.editing === "title") {
         return (
           <input type="text"
+                 ref="title"
                  className="title"
                  value={title}
                  onChange={this.updateInput}

@@ -1,7 +1,8 @@
 (function (root) {
-  var Admin, Header, LogOut;
+  var Admin, Header, Add, LogOut;
 
   Admin = BunnyEars.Admin = BunnyEars.Admin || {};
+  Add = Admin.Add;
   LogOut = Admin.LogOut;
 
   Header = Admin.Header = React.createClass({
@@ -10,7 +11,7 @@
         <header className="admin-header">
           <a className="logo" href="/">Bunny Ears</a>
           <nav className="admin-nav">
-            <button onClick={this.addShows}>Add</button>
+            <Add addShows={this.props.addShows} />
             <button onClick={this.props.sort}>Sort</button>
             <LogOut />
           </nav>
@@ -20,25 +21,6 @@
                  placeholder="Filter shows" />
         </header>
       );
-    },
-
-    addShows: function () {
-      $.ajax({
-        type: "get",
-        url: "http://api.themoviedb.org/3/tv/" + category,
-        data: { api_key: this.key, page: counter },
-        dataType: "json",
-        success: function (data) {
-          var serializedData = this.parseData(data.results);
-          this.props.createShows(serializedData);
-        }.bind(this)
-      });
-    },
-
-    parseData: function (data) {
-      return data.map(function (tv) {
-        return { tmdb_id: tv.id, title: tv.name };
-      });
     }
   });
 })(this);

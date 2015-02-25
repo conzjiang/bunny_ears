@@ -1,5 +1,6 @@
 //= require bunnyEars
 //= require utils
+//= require admin/addButton
 //= require admin/logOut
 //= require admin/header
 //= require admin/uploadButton

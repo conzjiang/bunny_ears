@@ -8,7 +8,7 @@
 
     render: function () {
       return (
-        <ul className="group">
+        <ul className="public-nav group">
           <li>
             <a className={this.state.recommendClass}
                onClick={this.setForm}
