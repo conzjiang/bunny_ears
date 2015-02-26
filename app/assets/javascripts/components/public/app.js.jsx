@@ -1,9 +1,18 @@
 (function (root) {
-  var BunnyEars, Header, TvList;
+  var BunnyEars, Header, TvList, strip, App;
 
   BunnyEars = root.BunnyEars = root.BunnyEars || {};
   Header = BunnyEars.Header;
   TvList = BunnyEars.TvList;
+  strip = function (string) {
+    return (
+      string.
+        toLowerCase().
+        replace(/[\.,!?:'"]/g, "").
+        replace(/[\/\-]/g, " ").
+        trim()
+    );
+  };
 
   App = BunnyEars.App = React.createClass({
     getInitialState: function () {
@@ -41,9 +50,9 @@
 
       results.forEach(function (result) {
         var tv;
-
+        if (result === "Childrens Hospital") debugger
         this.state.initialShows.some(function (show) {
-          if (show.title.toLowerCase() === result.toLowerCase()) {
+          if (strip(show.title) === strip(result)) {
             tv = show;
             return true;
           }
