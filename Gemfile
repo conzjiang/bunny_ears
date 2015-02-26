@@ -15,6 +15,7 @@ gem 'bcrypt'
 gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'react-rails'
 
 group :development do
   gem 'byebug'

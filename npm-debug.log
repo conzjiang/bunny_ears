@@ -1,0 +1,480 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/opt/local/bin/node',
+1 verbose cli   '/opt/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'react-tools' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.29
+4 verbose cache add [ 'react-tools', null ]
+5 verbose cache add name=undefined spec="react-tools" args=["react-tools",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'react-tools',
+6 verbose parsed url   path: 'react-tools',
+6 verbose parsed url   href: 'react-tools' }
+7 silly lockFile 0f761efe-react-tools react-tools
+8 verbose lock react-tools /Users/CONZ/.npm/0f761efe-react-tools.lock
+9 silly lockFile 0f761efe-react-tools react-tools
+10 silly lockFile 0f761efe-react-tools react-tools
+11 verbose addNamed [ 'react-tools', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 47fcd5e0-react-tools react-tools@
+14 verbose lock react-tools@ /Users/CONZ/.npm/47fcd5e0-react-tools.lock
+15 silly addNameRange { name: 'react-tools', range: '*', hasData: false }
+16 verbose url raw react-tools
+17 verbose url resolving [ 'https://registry.npmjs.org/', './react-tools' ]
+18 verbose url resolved https://registry.npmjs.org/react-tools
+19 info trying registry request attempt 1 at 22:19:16
+20 http GET https://registry.npmjs.org/react-tools
+21 http 200 https://registry.npmjs.org/react-tools
+22 silly registry.get cb [ 200,
+22 silly registry.get   { date: 'Wed, 25 Feb 2015 03:19:17 GMT',
+22 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+22 silly registry.get     etag: '"BC3OJYCSAD36DCP34TRH1OJKN"',
+22 silly registry.get     'content-type': 'application/json',
+22 silly registry.get     'cache-control': 'max-age=60',
+22 silly registry.get     'content-length': '57823',
+22 silly registry.get     'accept-ranges': 'bytes',
+22 silly registry.get     via: '1.1 varnish',
+22 silly registry.get     age: '0',
+22 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+22 silly registry.get     'x-cache': 'HIT',
+22 silly registry.get     'x-cache-hits': '1',
+22 silly registry.get     'x-timer': 'S1424834357.101495,VS0,VE77',
+22 silly registry.get     vary: 'Accept',
+22 silly registry.get     'keep-alive': 'timeout=10, max=50',
+22 silly registry.get     connection: 'Keep-Alive' } ]
+23 silly addNameRange number 2 { name: 'react-tools', range: '*', hasData: true }
+24 silly addNameRange versions [ 'react-tools',
+24 silly addNameRange   [ '0.3.0',
+24 silly addNameRange     '0.3.1',
+24 silly addNameRange     '0.3.2',
+24 silly addNameRange     '0.3.3',
+24 silly addNameRange     '0.4.0',
+24 silly addNameRange     '0.4.1',
+24 silly addNameRange     '0.5.0',
+24 silly addNameRange     '0.5.1',
+24 silly addNameRange     '0.4.2',
+24 silly addNameRange     '0.5.2',
+24 silly addNameRange     '0.8.0',
+24 silly addNameRange     '0.9.0-rc1',
+24 silly addNameRange     '0.9.0',
+24 silly addNameRange     '0.10.0-rc1',
+24 silly addNameRange     '0.10.0',
+24 silly addNameRange     '0.11.0-rc1',
+24 silly addNameRange     '0.11.0',
+24 silly addNameRange     '0.11.1',
+24 silly addNameRange     '0.11.2',
+24 silly addNameRange     '0.12.0-rc1',
+24 silly addNameRange     '0.12.0',
+24 silly addNameRange     '0.12.1',
+24 silly addNameRange     '0.12.2',
+24 silly addNameRange     '0.13.0-alpha.1',
+24 silly addNameRange     '0.13.0-alpha.2',
+24 silly addNameRange     '0.13.0-beta.1',
+24 silly addNameRange     '0.13.0-beta.2',
+24 silly addNameRange     '0.13.0-rc1' ] ]
+25 verbose addNamed [ 'react-tools', '0.12.2' ]
+26 verbose addNamed [ '0.12.2', '0.12.2' ]
+27 silly lockFile d49341b9-react-tools-0-12-2 react-tools@0.12.2
+28 verbose lock react-tools@0.12.2 /Users/CONZ/.npm/d49341b9-react-tools-0-12-2.lock
+29 silly lockFile ad17add2-act-tools-react-tools-0-12-2-tgz https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz
+30 verbose lock https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz /Users/CONZ/.npm/ad17add2-act-tools-react-tools-0-12-2-tgz.lock
+31 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz',
+31 verbose addRemoteTarball   '92e55a24f8412df6583555dd96ceb8cdb24ae86e' ]
+32 info retry fetch attempt 1 at 22:19:17
+33 verbose fetch to= /var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz
+34 http GET https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz
+35 http 200 https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz
+36 verbose tar unpack /var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz
+37 silly lockFile 1c3a7786-Z-npm-react-tools-0-12-2-package tar:///Users/CONZ/.npm/react-tools/0.12.2/package
+38 verbose lock tar:///Users/CONZ/.npm/react-tools/0.12.2/package /Users/CONZ/.npm/1c3a7786-Z-npm-react-tools-0-12-2-package.lock
+39 silly lockFile 8d90bad1-57426-0-6894298598635942-tmp-tgz tar:///var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz
+40 verbose lock tar:///var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz /Users/CONZ/.npm/8d90bad1-57426-0-6894298598635942-tmp-tgz.lock
+41 silly gunzTarPerm modes [ '755', '644' ]
+42 silly gunzTarPerm extractEntry package.json
+43 silly gunzTarPerm extractEntry README.md
+44 silly gunzTarPerm extractEntry main.js
+45 silly gunzTarPerm extractEntry bin/jsx
+46 silly gunzTarPerm extractEntry src/package.json
+47 silly gunzTarPerm extractEntry src/addons/ReactComponentWithPureRenderMixin.js
+48 silly gunzTarPerm extractEntry src/addons/ReactRAFBatchingStrategy.js
+49 silly gunzTarPerm extractEntry src/addons/update.js
+50 silly gunzTarPerm extractEntry src/addons/__tests__/update-test.js
+51 silly gunzTarPerm extractEntry src/addons/link/LinkedStateMixin.js
+52 silly gunzTarPerm extractEntry src/addons/link/ReactLink.js
+53 silly gunzTarPerm extractEntry src/addons/link/__tests__/LinkedStateMixin-test.js
+54 silly gunzTarPerm extractEntry src/addons/link/__tests__/ReactLinkPropTypes-test.js
+55 silly gunzTarPerm extractEntry src/addons/transitions/ReactCSSTransitionGroup.js
+56 silly gunzTarPerm extractEntry src/addons/transitions/ReactCSSTransitionGroupChild.js
+57 silly gunzTarPerm extractEntry src/addons/transitions/ReactTransitionChildMapping.js
+58 silly gunzTarPerm extractEntry src/addons/transitions/ReactTransitionEvents.js
+59 silly gunzTarPerm extractEntry src/addons/transitions/ReactTransitionGroup.js
+60 silly gunzTarPerm extractEntry src/addons/transitions/__tests__/ReactCSSTransitionGroup-test.js
+61 silly gunzTarPerm extractEntry src/addons/transitions/__tests__/ReactTransitionChildMapping-test.js
+62 silly gunzTarPerm extractEntry src/addons/transitions/__tests__/ReactTransitionGroup-test.js
+63 silly gunzTarPerm extractEntry src/browser/ClientReactRootIndex.js
+64 silly gunzTarPerm extractEntry src/browser/ReactDOM.js
+65 silly gunzTarPerm extractEntry src/browser/ReactPutListenerQueue.js
+66 silly gunzTarPerm extractEntry src/browser/ReactReconcileTransaction.js
+67 silly gunzTarPerm extractEntry src/browser/ReactTextComponent.js
+68 silly gunzTarPerm extractEntry src/browser/ReactBrowserEventEmitter.js
+69 silly gunzTarPerm extractEntry src/browser/ReactWithAddons.js
+70 silly gunzTarPerm extractEntry src/browser/__tests__/ReactBrowserEventEmitter-test.js
+71 silly gunzTarPerm extractEntry src/browser/__tests__/ReactDOM-test.js
+72 silly gunzTarPerm extractEntry src/browser/__tests__/ReactWebWorker-test.js
+73 silly gunzTarPerm extractEntry src/browser/eventPlugins/AnalyticsEventPluginFactory.js
+74 silly gunzTarPerm extractEntry src/browser/eventPlugins/ChangeEventPlugin.js
+75 silly gunzTarPerm extractEntry src/browser/eventPlugins/CompositionEventPlugin.js
+76 silly gunzTarPerm extractEntry src/browser/eventPlugins/DefaultEventPluginOrder.js
+77 silly gunzTarPerm extractEntry src/browser/eventPlugins/EnterLeaveEventPlugin.js
+78 silly gunzTarPerm extractEntry src/browser/eventPlugins/BeforeInputEventPlugin.js
+79 silly gunzTarPerm extractEntry src/browser/eventPlugins/ResponderEventPlugin.js
+80 silly gunzTarPerm extractEntry src/browser/eventPlugins/SelectEventPlugin.js
+81 silly gunzTarPerm extractEntry src/browser/eventPlugins/SimpleEventPlugin.js
+82 silly gunzTarPerm extractEntry src/browser/eventPlugins/TapEventPlugin.js
+83 silly gunzTarPerm extractEntry src/browser/eventPlugins/MobileSafariClickEventPlugin.js
+84 silly gunzTarPerm extractEntry src/browser/eventPlugins/__tests__/AnalyticsEventPlugin-test.js
+85 silly gunzTarPerm extractEntry src/browser/eventPlugins/__tests__/EnterLeaveEventPlugin-test.js
+86 silly gunzTarPerm extractEntry src/browser/eventPlugins/__tests__/ResponderEventPlugin-test.js
+87 silly gunzTarPerm extractEntry src/browser/server/ReactMarkupChecksum.js
+88 silly gunzTarPerm extractEntry src/browser/server/ReactServerRendering.js
+89 silly gunzTarPerm extractEntry src/browser/server/ReactServerRenderingTransaction.js
+90 silly gunzTarPerm extractEntry src/browser/server/ServerReactRootIndex.js
+91 silly gunzTarPerm extractEntry src/browser/server/__tests__/ReactServerRendering-test.js
+92 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticClipboardEvent.js
+93 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticDragEvent.js
+94 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticEvent.js
+95 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticFocusEvent.js
+96 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticInputEvent.js
+97 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticCompositionEvent.js
+98 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticMouseEvent.js
+99 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticTouchEvent.js
+100 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticUIEvent.js
+101 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticWheelEvent.js
+102 silly gunzTarPerm extractEntry src/browser/syntheticEvents/SyntheticKeyboardEvent.js
+103 silly gunzTarPerm extractEntry src/browser/syntheticEvents/__tests__/SyntheticEvent-test.js
+104 silly gunzTarPerm extractEntry src/browser/syntheticEvents/__tests__/SyntheticWheelEvent-test.js
+105 silly gunzTarPerm extractEntry src/browser/ui/React.js
+106 silly gunzTarPerm extractEntry src/browser/ui/ReactComponentBrowserEnvironment.js
+107 silly gunzTarPerm extractEntry src/browser/ui/ReactDOMComponent.js
+108 silly gunzTarPerm extractEntry src/browser/ui/ReactDOMIDOperations.js
+109 silly gunzTarPerm extractEntry src/browser/ui/ReactDOMSelection.js
+110 silly gunzTarPerm extractEntry src/browser/ui/ReactDefaultInjection.js
+111 silly gunzTarPerm extractEntry src/browser/ui/ReactBrowserComponentMixin.js
+112 silly gunzTarPerm extractEntry src/browser/ui/ReactInjection.js
+113 silly gunzTarPerm extractEntry src/browser/ui/ReactInputSelection.js
+114 silly gunzTarPerm extractEntry src/browser/ui/ReactMount.js
+115 silly gunzTarPerm extractEntry src/browser/ui/getReactRootElementInContainer.js
+116 silly gunzTarPerm extractEntry src/browser/ui/ReactEventListener.js
+117 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactDOMComponent-test.js
+118 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactDOMIDOperations-test.js
+119 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactEventListener-test.js
+120 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactMount-test.js
+121 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactMountDestruction-test.js
+122 silly gunzTarPerm extractEntry src/browser/ui/__tests__/ReactRenderDocument-test.js
+123 silly gunzTarPerm extractEntry src/browser/ui/dom/CSSProperty.js
+124 silly gunzTarPerm extractEntry src/browser/ui/dom/HTMLDOMPropertyConfig.js
+125 silly gunzTarPerm extractEntry src/browser/ui/dom/SVGDOMPropertyConfig.js
+126 silly gunzTarPerm extractEntry src/browser/ui/dom/ViewportMetrics.js
+127 silly gunzTarPerm extractEntry src/browser/ui/dom/Danger.js
+128 silly gunzTarPerm extractEntry src/browser/ui/dom/CSSPropertyOperations.js
+129 silly gunzTarPerm extractEntry src/browser/ui/dom/dangerousStyleValue.js
+130 silly gunzTarPerm extractEntry src/browser/ui/dom/getEventCharCode.js
+131 silly gunzTarPerm extractEntry src/browser/ui/dom/getEventKey.js
+132 silly gunzTarPerm extractEntry src/browser/ui/dom/getEventModifierState.js
+133 silly gunzTarPerm extractEntry src/browser/ui/dom/DOMPropertyOperations.js
+134 silly gunzTarPerm extractEntry src/browser/ui/dom/getEventTarget.js
+135 silly gunzTarPerm extractEntry src/browser/ui/dom/DOMProperty.js
+136 silly gunzTarPerm extractEntry src/browser/ui/dom/getNodeForCharacterOffset.js
+137 silly gunzTarPerm extractEntry src/browser/ui/dom/DOMChildrenOperations.js
+138 silly gunzTarPerm extractEntry src/browser/ui/dom/getTextContentAccessor.js
+139 silly gunzTarPerm extractEntry src/browser/ui/dom/isEventSupported.js
+140 silly gunzTarPerm extractEntry src/browser/ui/dom/setInnerHTML.js
+141 silly gunzTarPerm extractEntry src/browser/ui/dom/__tests__/CSSProperty-test.js
+142 silly gunzTarPerm extractEntry src/browser/ui/dom/__tests__/CSSPropertyOperations-test.js
+143 silly gunzTarPerm extractEntry src/browser/ui/dom/__tests__/DOMPropertyOperations-test.js
+144 silly gunzTarPerm extractEntry src/browser/ui/dom/__tests__/Danger-test.js
+145 silly gunzTarPerm extractEntry src/browser/ui/dom/__tests__/getNodeForCharacterOffset-test.js
+146 silly gunzTarPerm extractEntry src/browser/ui/dom/components/AutoFocusMixin.js
+147 silly gunzTarPerm extractEntry src/browser/ui/dom/components/LocalEventTrapMixin.js
+148 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMButton.js
+149 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMForm.js
+150 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMImg.js
+151 silly gunzTarPerm extractEntry src/browser/ui/dom/components/LinkedValueUtils.js
+152 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMOption.js
+153 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMSelect.js
+154 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMTextarea.js
+155 silly gunzTarPerm extractEntry src/browser/ui/dom/components/createFullPageComponent.js
+156 silly gunzTarPerm extractEntry src/browser/ui/dom/components/ReactDOMInput.js
+157 silly gunzTarPerm extractEntry src/browser/ui/dom/components/__tests__/ReactDOMButton-test.js
+158 silly gunzTarPerm extractEntry src/browser/ui/dom/components/__tests__/ReactDOMInput-test.js
+159 silly gunzTarPerm extractEntry src/browser/ui/dom/components/__tests__/ReactDOMSelect-test.js
+160 silly gunzTarPerm extractEntry src/browser/ui/dom/components/__tests__/ReactDOMTextarea-test.js
+161 silly gunzTarPerm extractEntry src/core/ReactComponent.js
+162 silly gunzTarPerm extractEntry src/core/ReactEventEmitterMixin.js
+163 silly gunzTarPerm extractEntry src/core/ReactInstanceHandles.js
+164 silly gunzTarPerm extractEntry src/core/ReactLegacyElement.js
+165 silly gunzTarPerm extractEntry src/core/ReactEmptyComponent.js
+166 silly gunzTarPerm extractEntry src/core/ReactCompositeComponent.js
+167 silly gunzTarPerm extractEntry src/core/ReactNativeComponent.js
+168 silly gunzTarPerm extractEntry src/core/ReactOwner.js
+169 silly gunzTarPerm extractEntry src/core/ReactPropTransferer.js
+170 silly gunzTarPerm extractEntry src/core/ReactPropTypeLocationNames.js
+171 silly gunzTarPerm extractEntry src/core/ReactElementValidator.js
+172 silly gunzTarPerm extractEntry src/core/ReactPropTypeLocations.js
+173 silly gunzTarPerm extractEntry src/core/ReactElement.js
+174 silly gunzTarPerm extractEntry src/core/ReactPropTypes.js
+175 silly gunzTarPerm extractEntry src/core/ReactDoNotBindDeprecated.js
+176 silly gunzTarPerm extractEntry src/core/ReactRootIndex.js
+177 silly gunzTarPerm extractEntry src/core/ReactDefaultBatchingStrategy.js
+178 silly gunzTarPerm extractEntry src/core/ReactStateSetters.js
+179 silly gunzTarPerm extractEntry src/core/ReactCurrentOwner.js
+180 silly gunzTarPerm extractEntry src/core/ReactUpdates.js
+181 silly gunzTarPerm extractEntry src/core/ReactContext.js
+182 silly gunzTarPerm extractEntry src/core/instantiateReactComponent.js
+183 silly gunzTarPerm extractEntry src/core/ReactMultiChild.js
+184 silly gunzTarPerm extractEntry src/core/shouldUpdateReactComponent.js
+185 silly gunzTarPerm extractEntry src/core/ReactMultiChildUpdateTypes.js
+186 silly gunzTarPerm extractEntry src/core/__tests__/ReactBind-test.js
+187 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponentSpec-test.js
+188 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponentState-test.js
+189 silly gunzTarPerm extractEntry src/core/__tests__/ReactElement-test.js
+190 silly gunzTarPerm extractEntry src/core/__tests__/ReactIdentity-test.js
+191 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponentMixin-test.js
+192 silly gunzTarPerm extractEntry src/core/__tests__/ReactMultiChild-test.js
+193 silly gunzTarPerm extractEntry src/core/__tests__/ReactMultiChildReconcile-test.js
+194 silly gunzTarPerm extractEntry src/core/__tests__/ReactMultiChildText-test.js
+195 silly gunzTarPerm extractEntry src/core/__tests__/ReactPropTransferer-test.js
+196 silly gunzTarPerm extractEntry src/core/__tests__/ReactPropTypes-test.js
+197 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponentError-test.js
+198 silly gunzTarPerm extractEntry src/core/__tests__/ReactStateSetters-test.js
+199 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponentDOMMinimalism-test.js
+200 silly gunzTarPerm extractEntry src/core/__tests__/ReactTextComponent-test.js
+201 silly gunzTarPerm extractEntry src/core/__tests__/ReactCompositeComponent-test.js
+202 silly gunzTarPerm extractEntry src/core/__tests__/ReactUpdates-test.js
+203 silly gunzTarPerm extractEntry src/core/__tests__/ReactComponentLifeCycle-test.js
+204 silly gunzTarPerm extractEntry src/core/__tests__/refs-destruction-test.js
+205 silly gunzTarPerm extractEntry src/core/__tests__/ReactComponent-test.js
+206 silly gunzTarPerm extractEntry src/core/__tests__/refs-test.js
+207 silly gunzTarPerm extractEntry src/core/__tests__/ReactInstanceHandles-test.js
+208 silly gunzTarPerm extractEntry src/event/EventConstants.js
+209 silly gunzTarPerm extractEntry src/event/EventPluginHub.js
+210 silly gunzTarPerm extractEntry src/event/EventPluginRegistry.js
+211 silly gunzTarPerm extractEntry src/event/EventPluginUtils.js
+212 silly gunzTarPerm extractEntry src/event/EventPropagators.js
+213 silly gunzTarPerm extractEntry src/event/__tests__/EventPluginHub-test.js
+214 silly gunzTarPerm extractEntry src/event/__tests__/EventPluginRegistry-test.js
+215 silly gunzTarPerm extractEntry src/test/ReactDefaultPerf.js
+216 silly gunzTarPerm extractEntry src/test/ReactTestUtils.js
+217 silly gunzTarPerm extractEntry src/test/all.js
+218 silly gunzTarPerm extractEntry src/test/createHierarchyRenderer.js
+219 silly gunzTarPerm extractEntry src/test/ReactPerf.js
+220 silly gunzTarPerm extractEntry src/test/mock-modules.js
+221 silly gunzTarPerm extractEntry src/test/mock-timers.js
+222 silly gunzTarPerm extractEntry src/test/mocks.js
+223 silly gunzTarPerm extractEntry src/test/phantomjs-shims.js
+224 silly gunzTarPerm extractEntry src/test/reactComponentExpect.js
+225 silly gunzTarPerm extractEntry src/test/ReactDefaultPerfAnalysis.js
+226 silly gunzTarPerm extractEntry src/test/worker.js
+227 silly gunzTarPerm extractEntry src/test/getTestDocument.js
+228 silly gunzTarPerm extractEntry src/utils/CallbackQueue.js
+229 silly gunzTarPerm extractEntry src/utils/accumulate.js
+230 silly gunzTarPerm extractEntry src/utils/accumulateInto.js
+231 silly gunzTarPerm extractEntry src/utils/adler32.js
+232 silly gunzTarPerm extractEntry src/utils/cloneWithProps.js
+233 silly gunzTarPerm extractEntry src/utils/sliceChildren.js
+234 silly gunzTarPerm extractEntry src/utils/escapeTextForBrowser.js
+235 silly gunzTarPerm extractEntry src/utils/flattenChildren.js
+236 silly gunzTarPerm extractEntry src/utils/forEachAccumulated.js
+237 silly gunzTarPerm extractEntry src/utils/isTextInputElement.js
+238 silly gunzTarPerm extractEntry src/utils/joinClasses.js
+239 silly gunzTarPerm extractEntry src/utils/Transaction.js
+240 silly gunzTarPerm extractEntry src/utils/keyMirror.js
+241 silly gunzTarPerm extractEntry src/utils/ReactChildren.js
+242 silly gunzTarPerm extractEntry src/utils/memoizeStringOnly.js
+243 silly gunzTarPerm extractEntry src/utils/PooledClass.js
+244 silly gunzTarPerm extractEntry src/utils/onlyChild.js
+245 silly gunzTarPerm extractEntry src/utils/OrderedMap.js
+246 silly gunzTarPerm extractEntry src/utils/shallowEqual.js
+247 silly gunzTarPerm extractEntry src/utils/LegacyImmutableObject.js
+248 silly gunzTarPerm extractEntry src/utils/traverseAllChildren.js
+249 silly gunzTarPerm extractEntry src/utils/deprecated.js
+250 silly gunzTarPerm extractEntry src/utils/__tests__/LegacyImmutableObject-test.js
+251 silly gunzTarPerm extractEntry src/utils/__tests__/ReactChildren-test.js
+252 silly gunzTarPerm extractEntry src/utils/__tests__/Transaction-test.js
+253 silly gunzTarPerm extractEntry src/utils/__tests__/accumulateInto-test.js
+254 silly gunzTarPerm extractEntry src/utils/__tests__/cloneWithProps-test.js
+255 silly gunzTarPerm extractEntry src/utils/__tests__/PooledClass-test.js
+256 silly gunzTarPerm extractEntry src/utils/__tests__/joinClasses-test.js
+257 silly gunzTarPerm extractEntry src/utils/__tests__/keyMirror-test.js
+258 silly gunzTarPerm extractEntry src/utils/__tests__/memoizeStringOnly-test.js
+259 silly gunzTarPerm extractEntry src/utils/__tests__/onlyChild-test.js
+260 silly gunzTarPerm extractEntry src/utils/__tests__/sliceChildren-test.js
+261 silly gunzTarPerm extractEntry src/utils/__tests__/OrderedMap-test.js
+262 silly gunzTarPerm extractEntry src/utils/__tests__/traverseAllChildren-test.js
+263 silly gunzTarPerm extractEntry src/utils/__tests__/escapeTextForBrowser-test.js
+264 silly gunzTarPerm extractEntry src/vendor/README.md
+265 silly gunzTarPerm extractEntry src/vendor/core/CSSCore.js
+266 silly gunzTarPerm extractEntry src/vendor/core/emptyFunction.js
+267 silly gunzTarPerm extractEntry src/vendor/core/emptyObject.js
+268 silly gunzTarPerm extractEntry src/vendor/core/getMarkupWrap.js
+269 silly gunzTarPerm extractEntry src/vendor/core/toArray.js
+270 silly gunzTarPerm extractEntry src/vendor/core/ExecutionEnvironment.js
+271 silly gunzTarPerm extractEntry src/vendor/core/invariant.js
+272 silly gunzTarPerm extractEntry src/vendor/core/keyOf.js
+273 silly gunzTarPerm extractEntry src/vendor/core/mapObject.js
+274 silly gunzTarPerm extractEntry src/vendor/core/mergeDeep.js
+275 silly gunzTarPerm extractEntry src/vendor/core/createNodesFromMarkup.js
+276 silly gunzTarPerm extractEntry src/vendor/core/mergeDeepInto.js
+277 silly gunzTarPerm extractEntry src/vendor/core/createArrayFrom.js
+278 silly gunzTarPerm extractEntry src/vendor/core/mergeHelpers.js
+279 silly gunzTarPerm extractEntry src/vendor/core/camelizeStyleName.js
+280 silly gunzTarPerm extractEntry src/vendor/core/monitorCodeUse.js
+281 silly gunzTarPerm extractEntry src/vendor/core/camelize.js
+282 silly gunzTarPerm extractEntry src/vendor/core/nativeRequestAnimationFrame.js
+283 silly gunzTarPerm extractEntry src/vendor/core/TouchEventUtils.js
+284 silly gunzTarPerm extractEntry src/vendor/core/requestAnimationFrame.js
+285 silly gunzTarPerm extractEntry src/vendor/core/hyphenate.js
+286 silly gunzTarPerm extractEntry src/vendor/core/warning.js
+287 silly gunzTarPerm extractEntry src/vendor/core/hyphenateStyleName.js
+288 silly gunzTarPerm extractEntry src/vendor/core/dom/containsNode.js
+289 silly gunzTarPerm extractEntry src/vendor/core/dom/focusNode.js
+290 silly gunzTarPerm extractEntry src/vendor/core/dom/getActiveElement.js
+291 silly gunzTarPerm extractEntry src/vendor/core/dom/getUnboundedScrollPosition.js
+292 silly gunzTarPerm extractEntry src/vendor/core/dom/isNode.js
+293 silly gunzTarPerm extractEntry src/vendor/core/dom/isTextNode.js
+294 silly gunzTarPerm extractEntry src/vendor/immutable/Immutable.js
+295 silly gunzTarPerm extractEntry src/vendor/immutable/ImmutableObject.js
+296 silly gunzTarPerm extractEntry src/vendor/performance/performance.js
+297 silly gunzTarPerm extractEntry src/vendor/performance/performanceNow.js
+298 silly gunzTarPerm extractEntry src/vendor/stubs/EventListener.js
+299 silly gunzTarPerm extractEntry src/vendor/stubs/Object.assign.js
+300 silly gunzTarPerm extractEntry src/vendor/stubs/ReactErrorUtils.js
+301 silly gunzTarPerm extractEntry src/vendor/stubs/cx.js
+302 silly gunzTarPerm extractEntry src/vendor_deprecated/README.md
+303 silly gunzTarPerm extractEntry src/vendor_deprecated/core/copyProperties.js
+304 silly gunzTarPerm extractEntry src/vendor_deprecated/core/merge.js
+305 silly gunzTarPerm extractEntry src/vendor_deprecated/core/mergeInto.js
+306 silly gunzTarPerm extractEntry vendor/fbtransform/syntax.js
+307 silly gunzTarPerm extractEntry vendor/fbtransform/visitors.js
+308 silly gunzTarPerm extractEntry vendor/fbtransform/transforms/react.js
+309 silly gunzTarPerm extractEntry vendor/fbtransform/transforms/reactDisplayName.js
+310 silly gunzTarPerm extractEntry vendor/fbtransform/transforms/xjs.js
+311 silly gunzTarPerm extractEntry vendor/fbtransform/transforms/__tests__/react-displayName-test.js
+312 silly gunzTarPerm extractEntry vendor/fbtransform/transforms/__tests__/react-test.js
+313 silly lockFile 1c3a7786-Z-npm-react-tools-0-12-2-package tar:///Users/CONZ/.npm/react-tools/0.12.2/package
+314 silly lockFile 1c3a7786-Z-npm-react-tools-0-12-2-package tar:///Users/CONZ/.npm/react-tools/0.12.2/package
+315 silly lockFile 8d90bad1-57426-0-6894298598635942-tmp-tgz tar:///var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz
+316 silly lockFile 8d90bad1-57426-0-6894298598635942-tmp-tgz tar:///var/folders/fc/rjgrtcrj3zb_78xwt05t8wwr0000gn/T/npm-85412-p0QsO5e2/1424834357426-0.6894298598635942/tmp.tgz
+317 silly lockFile ad17add2-act-tools-react-tools-0-12-2-tgz https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz
+318 silly lockFile ad17add2-act-tools-react-tools-0-12-2-tgz https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz
+319 silly lockFile d49341b9-react-tools-0-12-2 react-tools@0.12.2
+320 silly lockFile d49341b9-react-tools-0-12-2 react-tools@0.12.2
+321 silly lockFile 47fcd5e0-react-tools react-tools@
+322 silly lockFile 47fcd5e0-react-tools react-tools@
+323 silly resolved [ { name: 'react-tools',
+323 silly resolved     description: 'A set of complementary tools to React, including the JSX transformer.',
+323 silly resolved     version: '0.12.2',
+323 silly resolved     keywords: [ 'react', 'jsx', 'transformer', 'view' ],
+323 silly resolved     homepage: 'http://facebook.github.io/react',
+323 silly resolved     bugs: { url: 'https://github.com/facebook/react/issues' },
+323 silly resolved     license: 'BSD-3-Clause',
+323 silly resolved     files: [ 'main.js', 'bin/jsx', 'src/', 'vendor/fbtransform/' ],
+323 silly resolved     main: 'main.js',
+323 silly resolved     bin: { jsx: './bin/jsx' },
+323 silly resolved     repository: { type: 'git', url: 'https://github.com/facebook/react' },
+323 silly resolved     dependencies: { commoner: '^0.10.0', jstransform: '^8.2.0' },
+323 silly resolved     devDependencies:
+323 silly resolved      { benchmark: '~1.0.0',
+323 silly resolved        browserify: '^6.1.0',
+323 silly resolved        coverify: '~1.0.4',
+323 silly resolved        derequire: '^1.2.0',
+323 silly resolved        envify: '^3.0.0',
+323 silly resolved        es3ify: '~0.1.2',
+323 silly resolved        'es5-shim': '^4.0.0',
+323 silly resolved        grunt: '~0.4.2',
+323 silly resolved        'grunt-cli': '~0.1.9',
+323 silly resolved        'grunt-compare-size': '~0.4.0',
+323 silly resolved        'grunt-contrib-clean': '^0.6.0',
+323 silly resolved        'grunt-contrib-compress': '^0.12.0',
+323 silly resolved        'grunt-contrib-connect': '~0.6.0',
+323 silly resolved        'grunt-contrib-copy': '^0.6.0',
+323 silly resolved        'grunt-contrib-jshint': '^0.10.0',
+323 silly resolved        'gzip-js': '~0.3.2',
+323 silly resolved        'jasmine-tapreporter': '~0.2.2',
+323 silly resolved        'jest-cli': '~0.1.5',
+323 silly resolved        lodash: '~2.4.1',
+323 silly resolved        optimist: '~0.6.0',
+323 silly resolved        phantomjs: '~1.9',
+323 silly resolved        platform: '^1.1.0',
+323 silly resolved        populist: '~0.1.6',
+323 silly resolved        recast: '^0.7.2',
+323 silly resolved        'sauce-tunnel': '~1.1.0',
+323 silly resolved        tmp: '~0.0.18',
+323 silly resolved        'uglify-js': '~2.4.0',
+323 silly resolved        uglifyify: '^2.4.0',
+323 silly resolved        wd: '~0.2.6' },
+323 silly resolved     engines: { node: '>=0.10.0' },
+323 silly resolved     preferGlobal: true,
+323 silly resolved     commonerConfig: { version: 4 },
+323 silly resolved     scripts: { test: 'grunt test', jest: 'jest' },
+323 silly resolved     jest:
+323 silly resolved      { rootDir: '',
+323 silly resolved        scriptPreprocessor: 'jest/preprocessor.js',
+323 silly resolved        setupEnvScriptFile: 'jest/environment.js',
+323 silly resolved        modulePathIgnorePatterns: [Object],
+323 silly resolved        testPathIgnorePatterns: [Object],
+323 silly resolved        unmockedModulePathPatterns: [Object] },
+323 silly resolved     readme: '# react-tools\n\nThis package compliments the usage of [React](http://facebook.github.io/react/). It ships with tools that are often used in conjunction.\n\n## JSX\n\nThis package installs a `jsx` executable that can be used to transform JSX into vanilla JS. This is often used as part of a build step. This transform is also exposed as an API.\n\n## Usage\n\n### Command Line\n\n    Usage: jsx [options] <source directory> <output directory> [<module ID> [<module ID> ...]]\n\n    Options:\n\n      -h, --help                               output usage information\n      -V, --version                            output the version number\n      -c, --config [file]                      JSON configuration file (no file or - means STDIN)\n      -w, --watch                              Continually rebuild\n      -x, --extension <js | coffee | ...>      File extension to assume when resolving module identifiers\n      --relativize                             Rewrite all module identifiers to be relative\n      --follow-requires                        Scan modules for required dependencies\n      --cache-dir <directory>                  Alternate directory to use for disk cache\n      --no-cache-dir                           Disable the disk cache\n      --source-charset <utf8 | win1252 | ...>  Charset of source (default: utf8)\n      --output-charset <utf8 | win1252 | ...>  Charset of output (default: utf8)\n      --harmony                                Turns on JS transformations such as ES6 Classes etc.\n      --source-map-inline                      Embed inline sourcemap in transformed source\n      --strip-types                            Strips out type annotations\n\n## API\n\n### `transform(inputString, options)`\n\noption | values | default\n-------|--------|---------\n`sourceMap` | `true`: append inline source map at the end of the transformed source | `false`\n`harmony` | `true`: enable ES6 features | `false`\n`sourceFilename` | the output filename for the source map | `"source.js"`\n`stripTypes` | `true`: strips out type annotations | `false`\n\n```js\nvar reactTools = require(\'react-tools\');\n\nreactTools.transform(string, options);\n```\n\n### `transformWithDetails(inputString, options)`\n\nJust like `transform`, but outputs an object:\n```js\n{\n  code: outputString,\n  sourceMap: theSourceMap // Only if the `sourceMap` option is `true`.\n}\n```\n',
+323 silly resolved     readmeFilename: 'README.md',
+323 silly resolved     _id: 'react-tools@0.12.2',
+323 silly resolved     _shasum: '92e55a24f8412df6583555dd96ceb8cdb24ae86e',
+323 silly resolved     _from: 'react-tools@',
+323 silly resolved     _resolved: 'https://registry.npmjs.org/react-tools/-/react-tools-0.12.2.tgz' } ]
+324 info install react-tools@0.12.2 into /opt/local/lib
+325 info installOne react-tools@0.12.2
+326 info /opt/local/lib/node_modules/react-tools unbuild
+327 verbose tar unpack /Users/CONZ/.npm/react-tools/0.12.2/package.tgz
+328 silly lockFile 373e0a72-cal-lib-node-modules-react-tools tar:///opt/local/lib/node_modules/react-tools
+329 verbose lock tar:///opt/local/lib/node_modules/react-tools /Users/CONZ/.npm/373e0a72-cal-lib-node-modules-react-tools.lock
+330 silly lockFile 105ffd45-m-react-tools-0-12-2-package-tgz tar:///Users/CONZ/.npm/react-tools/0.12.2/package.tgz
+331 verbose lock tar:///Users/CONZ/.npm/react-tools/0.12.2/package.tgz /Users/CONZ/.npm/105ffd45-m-react-tools-0-12-2-package-tgz.lock
+332 silly gunzTarPerm modes [ '755', '644' ]
+333 error Error: EACCES, mkdir '/opt/local/lib/node_modules/react-tools'
+333 error  { [Error: EACCES, mkdir '/opt/local/lib/node_modules/react-tools']
+333 error   errno: 3,
+333 error   code: 'EACCES',
+333 error   path: '/opt/local/lib/node_modules/react-tools',
+333 error   fstream_type: 'Directory',
+333 error   fstream_path: '/opt/local/lib/node_modules/react-tools',
+333 error   fstream_class: 'DirWriter',
+333 error   fstream_stack:
+333 error    [ '/opt/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+333 error      '/opt/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53',
+333 error      'Object.oncomplete (fs.js:107:15)' ] }
+334 error Please try running this command again as root/Administrator.
+335 error System Darwin 14.1.0
+336 error command "/opt/local/bin/node" "/opt/local/bin/npm" "install" "-g" "react-tools"
+337 error cwd /Users/CONZ/Desktop/bunny_ears
+338 error node -v v0.10.29
+339 error npm -v 1.4.9
+340 error path /opt/local/lib/node_modules/react-tools
+341 error fstream_path /opt/local/lib/node_modules/react-tools
+342 error fstream_type Directory
+343 error fstream_class DirWriter
+344 error code EACCES
+345 error errno 3
+346 error stack Error: EACCES, mkdir '/opt/local/lib/node_modules/react-tools'
+347 error fstream_stack /opt/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+347 error fstream_stack /opt/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53
+347 error fstream_stack Object.oncomplete (fs.js:107:15)
+348 verbose exit [ 3, true ]
