@@ -1,6 +1,5 @@
 (function (root) {
   var Header, TvList, Dashboard;
-  var marks = JSON.parse($("#mark").html())[0];
 
   Header = BunnyEars.Admin.Header;
   TvList = BunnyEars.Admin.TvList;
@@ -11,6 +10,8 @@
     },
 
     componentDidMount: function () {
+      this.marks = JSON.parse($("#mark").html())[0];
+
       $.ajax({
         type: "get",
         url: "admin/tv_shows",
@@ -44,7 +45,7 @@
     },
 
     addShows: function (category) {
-      var counter = marks[category] || 1;
+      var counter = this.marks[category] || 1;
       var newMark = {};
       newMark[category] = counter;
 
