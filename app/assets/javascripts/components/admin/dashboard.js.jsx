@@ -51,7 +51,7 @@
 
       $.ajax({
         type: "get",
-        url: "http://api.themoviedb.org/3/tv/" + category,
+        url: "https://api.themoviedb.org/3/tv/" + category,
         data: { api_key: this.accessKey, page: counter },
         dataType: "json",
         success: function (data) {

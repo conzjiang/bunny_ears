@@ -140,7 +140,7 @@
 
       $.ajax({
         type: "get",
-        url: "http://www.omdbapi.com",
+        url: "https://www.omdbapi.com",
         data: {
           t: this.props.show.title,
           type: "series",
