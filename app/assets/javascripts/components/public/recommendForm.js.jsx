@@ -37,7 +37,7 @@
 
       $.ajax({
         type: "get",
-        url: "http://www.tastekid.com/api/similar",
+        url: "https://www.tastekid.com/api/similar",
         data: { q: query, type: "show", k: this.props.accessKey },
         dataType: "jsonp",
         success: function (data) {

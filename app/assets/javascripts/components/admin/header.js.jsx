@@ -17,10 +17,15 @@
           </nav>
 
           <input type="text"
+                 onFocus={this.select}
                  onChange={this.props.filter}
                  placeholder="Filter shows" />
         </header>
       );
+    },
+
+    select: function (e) {
+      e.currentTarget.select();
     }
   });
 })(this);
