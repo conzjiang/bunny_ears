@@ -1,8 +1,8 @@
 <main id="content"></main>
 
-<script type="text/jsx" src="<%= asset_path "adminManifest.js" %>"></script>
+<script src="<%= asset_path "adminManifest.js" %>"></script>
 
-<script type="text/jsx">
+<script>
   $(function () {
     var Dashboard = BunnyEars.Admin.Dashboard;
     React.render(<Dashboard />, document.getElementById("content"));

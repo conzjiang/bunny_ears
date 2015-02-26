@@ -1,22 +1,10 @@
 <main id="content"></main>
 
-<script type="text/jsx" src="<%= asset_path "publicManifest.js" %>"></script>
+<script src="<%= asset_path "publicManifest.js" %>"></script>
 
-<script type="text/jsx">
+<script>
   $(function () {
     var App = BunnyEars.App;
     React.render(<App />, document.getElementById("content"));
   });
 </script>
-
-
-<article>
-  <div class="content-left">
-
-  </div>
-
-  <div class="content-right">
-    <h1></h1>
-    <p></p>
-  </div>
-</article>
