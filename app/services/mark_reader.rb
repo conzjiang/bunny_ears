@@ -18,6 +18,8 @@ class MarkReader
 
   private
   def parse_file
+    return {} unless File.file?(FILE_PATH)
+
     marks = File.readlines(FILE_PATH).map(&:chomp)
     marks.each_with_object({}) do |unparsed_line, state|
       category, mark = unparsed_line.split(" ")
