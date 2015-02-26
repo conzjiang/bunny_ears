@@ -8,3 +8,8 @@
 //= require components/public/searchForm
 //= require components/public/header
 //= require components/public/app
+
+$(function () {
+  var App = BunnyEars.App;
+  React.render(<App />, document.getElementById("content"));
+});

@@ -2,13 +2,6 @@
 
 <script src="<%= asset_path "adminManifest.js" %>"></script>
 
-<script>
-  $(function () {
-    var Dashboard = BunnyEars.Admin.Dashboard;
-    React.render(<Dashboard />, document.getElementById("content"));
-  });
-</script>
-
 <script id="mark">
   <%= [@marks].to_json.html_safe %>
 </script>
