@@ -16,6 +16,8 @@ gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'react-rails'
+gem 'rest-client'
+gem 'addressable'
 
 group :development do
   gem 'byebug'

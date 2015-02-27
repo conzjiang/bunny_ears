@@ -1,3 +1,5 @@
+require 'addressable/uri'
+
 class Admin::TvShowsController < ApplicationController
   before_action :require_admin
 
@@ -21,6 +23,12 @@ class Admin::TvShowsController < ApplicationController
     render :index
   end
 
+  def show
+    tv_show = TvShow.find(params[:id])
+    response = fetch_data_from_omdb(tv_show)
+    render json: response
+  end
+
   def update
     tv = TvShow.find(params[:id])
     tv.update!(tv_show_params)
@@ -42,6 +50,10 @@ class Admin::TvShowsController < ApplicationController
   end
 
   private
+  def fetch_data_from_omdb(tv)
+    OmdbFetch.new(tv).call
+  end
+
   def tv_params
     params[:tv_show].values
   end

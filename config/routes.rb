@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin, defaults: { format: :json } do
     put "tv_shows/update", to: "tv_shows#update_all"
-    resources :tv_shows, only: [:index, :create, :update, :destroy]
+    resources :tv_shows, only: [:index, :create, :show, :update, :destroy]
   end
 
   namespace :api, defaults: { format: :json } do

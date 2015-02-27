@@ -140,16 +140,10 @@
 
       $.ajax({
         type: "get",
-        url: "https://www.omdbapi.com",
-        data: {
-          t: this.props.show.title,
-          type: "series",
-          plot: "short",
-          r: "json"
-        },
+        url: "admin/tv_shows/" + this.props.show.id,
         dataType: "json",
         success: function (data) {
-          if (data.Response === "False") {
+          if (!data) {
             button.innerHTML = "Error :(";
             setTimeout(enable.bind(null, button, "Get Info"), 1000);
             return;
@@ -163,15 +157,8 @@
     },
 
     setAttrs: function (data) {
-      var show = this.props.show,
-          years = data.Year.split("–");
-
-      this.setState({
-        start_year: years[0],
-        end_year: years[1],
-        description: data.Plot,
-        editing: "description"
-      });
+      $.extend(data, { editing: "description" });
+      this.setState(data);
     },
 
     edit: function (e) {
