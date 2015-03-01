@@ -10,12 +10,8 @@
 
             <div className="content-right">
               <h1>{this.props.show.title}</h1>
-              <strong>
-                {this.props.show.start_year}
-                {"-"}
-                {this.props.show.end_year || "present"}
-              </strong>
-              <p>{this.props.show.description}</p>
+              <strong>{this.years()}</strong>
+              <p>{this.description()}</p>
             </div>
           </div>
         </article>
@@ -34,6 +30,27 @@
       } else {
         return <div className="image-block" />;
       }
+    },
+
+    years: function () {
+      var endYear;
+
+      if (this.props.show.start_year) {
+        endYear = this.props.show.end_year || "present";
+        return this.props.show.start_year + " - " + endYear;
+      } else {
+        return "";
+      }
+    },
+
+    description: function () {
+      var description;
+
+      if (description = this.props.show.description) {
+        return description;
+      } else {
+        return "No description provided yet. Come back later!";
+      }
     }
-  })
+  });
 })();
