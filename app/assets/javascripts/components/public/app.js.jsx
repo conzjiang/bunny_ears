@@ -46,9 +46,9 @@
     },
 
     match: function (results) {
-      var shows = [], newShows = [];
+      var shows, newShows = [];
 
-      results.forEach(function (result) {
+      shows = results.map(function (result) {
         var tv;
         if (result === "Childrens Hospital") debugger
         this.state.initialShows.some(function (show) {
@@ -58,11 +58,12 @@
           }
         });
 
-        if (tv) {
-          shows.push(tv);
-        } else {
+        if (!tv) {
           newShows.push(result);
+          return { title: result };
         }
+
+        return tv;
       }.bind(this));
 
       if (newShows.length) this.createShows(newShows);
