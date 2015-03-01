@@ -2,6 +2,8 @@ class TvShow < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :tmdb_id, uniqueness: true, allow_nil: true
 
+  has_many :earmarkings
+
   has_attached_file :image,
     :styles => {
       :medium => "300x400>"

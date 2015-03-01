@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223020511) do
+ActiveRecord::Schema.define(version: 20150301035911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "earmarkings", force: true do |t|
+    t.integer  "earmark_id"
+    t.integer  "tv_show_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "earmarkings", ["earmark_id"], name: "index_earmarkings_on_earmark_id", using: :btree
+  add_index "earmarkings", ["tv_show_id"], name: "index_earmarkings_on_tv_show_id", using: :btree
+
+  create_table "earmarks", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "earmarks", ["name"], name: "index_earmarks_on_name", using: :btree
 
   create_table "tv_shows", force: true do |t|
     t.string   "title"
