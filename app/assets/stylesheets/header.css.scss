@@ -12,6 +12,18 @@ a.logo {
   text-decoration: none;
   color: #fff;
   background: $main_color;
+
+  &:after {
+    content: "";
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 4px;
+    background-image: image-url("bunny.png");
+    background-size: cover;
+  }
 }
 
 .public-nav {
@@ -37,6 +49,11 @@ a.logo {
 @media (min-width: 500px) {
   a.logo {
     font-size: $logo_size_large;
+
+    &:after {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   nav {
