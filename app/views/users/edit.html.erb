@@ -1,0 +1,32 @@
+<header>
+  <a class="logo" href="<%= root_url %>">Bunny Ears</a>
+</header>
+
+<form action="<%= user_url %>" method="post">
+  <h1>Fill in the rest of your profile</h1>
+
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="put">
+
+  <fieldset>
+    <label for="user_email">Email</label>
+    <input id="user_email"
+           type="email"
+           name="user[email]"
+           value="<%= current_user.email %>"
+           placeholder="Because we need some way to reach you.">
+  </fieldset>
+
+  <fieldset>
+    <label for="user_username">Display Name</label>
+    <input id="user_username"
+           type="text"
+           name="user[username]"
+           value="<%= current_user.username %>"
+           placeholder="Give it some character!">
+  </fieldset>
+
+  <button>Submit</button>
+</form>

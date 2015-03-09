@@ -7,7 +7,7 @@ class AccessController < ApplicationController
 
   def create
     if User.valid_admin_password?(access_params[:password])
-      grant_access!
+      login!(User.first)
       redirect_to admin_url
     else
       render json: "Access Denied", status: 403
@@ -30,10 +30,6 @@ class AccessController < ApplicationController
 
   def marks
     MarkReader.new.marks
-  end
-
-  def grant_access!
-    session[:token] = User.first.set_session_token!
   end
 
   def log_out!

@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   include BCrypt
 
+  validates :email, presence: true
+  validates :uid, uniqueness: { scope: :provider }
+
   has_many :watchlists, foreign_key: :watcher_id
   has_many :watchlist_shows, through: :watchlists, as: :tv_show
 

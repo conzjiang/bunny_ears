@@ -18,6 +18,7 @@ gem 'aws-sdk'
 gem 'react-rails'
 gem 'rest-client'
 gem 'addressable'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'byebug'
