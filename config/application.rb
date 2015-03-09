@@ -18,5 +18,7 @@ module BunnyEars
         :secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
       }
     }
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require_tree ./fontello
  *= require_tree .
  */
 
@@ -63,6 +64,14 @@ h1 {
   @media (min-width: 500px) {
     font-size: $logo_size_large;
   }
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
 }
 
 .group:after {

@@ -1,10 +1,13 @@
 (function (root) {
-  var scrollTo, ellipsis, bindOuterClick, TvArticle, closeOtherArticle, TvShow;
+  var scrollTo, ellipsis, bindOuterClick, TvArticle, listModalEl, ListModal,
+    closeOtherArticle, TvShow;
 
   scrollTo = BunnyEars.Utils.scrollTo;
   ellipsis = BunnyEars.Utils.ellipsis;
   bindOuterClick = BunnyEars.Utils.bindOuterClick;
   TvArticle = BunnyEars.TvArticle;
+  listModalEl = BunnyEars.listModalEl;
+  ListModal = BunnyEars.ListModal;
 
   closeOtherArticle = function () {
     var expandedEl;
@@ -18,7 +21,9 @@
   TvShow = BunnyEars.TvShow = React.createClass({
     render: function () {
       return (
-        <li onClick={this.expand}>
+        <li onClick={this.expand}
+            draggable="true"
+            onDragStart={this.dragStart}>
           <div className="image-wrapper">{this.imageBlock()}</div>
           <TvArticle show={this.props.show} />
         </li>
@@ -34,6 +39,13 @@
       closeOtherArticle();
       this.openArticle();
       this.setUpEvents();
+    },
+
+    dragStart: function (e) {
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("tvId", this.props.show.id);
+      e.dataTransfer.setDragImage(e.currentTarget, 0, 0);
+      this.openList(e);
     },
 
     openArticle: function () {
@@ -64,9 +76,25 @@
       var imageUrl;
 
       if (imageUrl = this.props.show.image_url) {
-        return <img src={imageUrl} />;
+        return <img ref="image" src={imageUrl} />;
       } else {
-        return <strong className="block">{this.props.show.title}</strong>;
+        return (
+          <strong ref="image" className="block">
+            {this.props.show.title}
+          </strong>
+        );
+      }
+    },
+
+    openList: function (e) {
+      var statusList;
+
+      document.body.className = "open-modal";
+      listModalEl.style.top = window.scrollY + "px";
+
+      if (ListModal.insideModal(e)) {
+        statusList = listModalEl.querySelector(".watchlist-statuses");
+        statusList.style.top = e.pageY + 50 - window.scrollY + "px";
       }
     }
   });

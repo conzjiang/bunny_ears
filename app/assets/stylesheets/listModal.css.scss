@@ -1,0 +1,48 @@
+@import "variables";
+
+.modal-backdrop {
+  display: none;
+}
+
+.open-modal {
+  main {
+    opacity: 0.5;
+  }
+
+  .modal-backdrop {
+    display: block;
+  }
+}
+
+.watchlist-statuses {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 10px solid $main_color;
+  box-shadow: 5px 5px 10px #000;
+
+  li {
+    float: left;
+    width: 115px;
+    height: 115px;
+    margin: 10px;
+    padding: 20px 10px 0 10px;
+    text-align: center;
+
+    &:before {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 40px;
+    }
+
+    &.highlight,
+    &:hover {
+      background: $faded_main_color;
+      cursor: pointer;
+    }
+  }
+}

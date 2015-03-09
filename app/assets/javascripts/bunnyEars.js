@@ -1,4 +1,6 @@
 window.BunnyEars = {
   Utils: {},
-  Admin: {}
+  Admin: {},
+  listModalEl: document.getElementById("list-drop"),
+  STATUSES: ["Watching", "Plan to Watch", "Completed", "Dropped"]
 };
