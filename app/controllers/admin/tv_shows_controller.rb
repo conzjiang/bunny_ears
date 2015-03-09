@@ -68,7 +68,6 @@ class Admin::TvShowsController < ApplicationController
   end
 
   def update_mark!
-    new_mark = { params[:mark][:category] => params[:mark][:counter] }
-    MarkReader.new.update!(new_mark)
+    MarkReader.new.update!(params[:mark])
   end
 end

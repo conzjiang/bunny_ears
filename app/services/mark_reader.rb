@@ -1,5 +1,9 @@
 class MarkReader
-  FILE_PATH = "#{Rails.root}/public/bookmarks.txt"
+  if Rails.env.production?
+    FILE_PATH = "#{Rails.root}/bookmarks.txt"
+  else
+    FILE_PATH = "#{Rails.root}/public/bookmarks.txt"
+  end
 
   attr_reader :marks
 

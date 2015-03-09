@@ -6,7 +6,7 @@ class AccessController < ApplicationController
   end
 
   def create
-    if User.valid_password?(access_params[:password])
+    if User.valid_admin_password?(access_params[:password])
       grant_access!
       redirect_to admin_url
     else

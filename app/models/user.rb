@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
   include BCrypt
 
-  def self.valid_password?(password)
-    Password.new(first.password_digest).is_password?(password)
+  has_many :watchlists, foreign_key: :watcher_id
+  has_many :watchlist_shows, through: :watchlists, as: :tv_show
+
+  def self.valid_admin_password?(password)
+    Password.new(ENV["PW_DIGEST"]).is_password?(password)
   end
 
   def password=(password)
