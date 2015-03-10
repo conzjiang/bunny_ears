@@ -45,6 +45,7 @@
       e.dataTransfer.effectAllowed = "move";
       e.dataTransfer.setData("tvId", this.props.show.id);
       e.dataTransfer.setDragImage(e.currentTarget, 0, 0);
+      e.currentTarget.className += " drag";
       this.openList(e);
     },
 

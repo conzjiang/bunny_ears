@@ -1,7 +1,8 @@
 (function () {
-  var listModalEl, ListItem;
+  var listModalEl, removeClass, ListItem;
 
   listModalEl = BunnyEars.listModalEl;
+  removeClass = BunnyEars.Utils.removeClass;
 
   ListItem = BunnyEars.ListItem = React.createClass({
     render: function () {
@@ -25,10 +26,7 @@
     },
 
     unhighlightStatus: function (e) {
-      var className = e.currentTarget.className,
-          cutOffIndex = className.indexOf("highlight") - 1;
-
-      e.currentTarget.className = className.slice(0, cutOffIndex);
+      removeClass(e.currentTarget, "highlight");
     },
 
     addToList: function (e) {
@@ -37,6 +35,8 @@
           tvId = e.dataTransfer.getData("tvId");
 
       console.log(status, tvId);
+
+      removeClass(document.body.querySelector(".drag"), "drag");
       this.unhighlightStatus(e);
       this.closeModal();
     },

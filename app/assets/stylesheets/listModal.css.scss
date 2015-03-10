@@ -5,8 +5,16 @@
 }
 
 .open-modal {
-  main {
+  header {
     opacity: 0.5;
+  }
+
+  .cards li {
+    @extend header;
+
+    &.drag {
+      opacity: 1;
+    }
   }
 
   .modal-backdrop {

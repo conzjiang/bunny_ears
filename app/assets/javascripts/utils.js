@@ -82,4 +82,11 @@
       }
     });
   };
+
+  Utils.removeClass = function (el, className) {
+    var currentClasses = el.className,
+        classIndex = currentClasses.indexOf(className);
+
+    el.className = currentClasses.slice(0, classIndex - 1);
+  };
 })(this);
