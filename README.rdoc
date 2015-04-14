@@ -1,1 +1,2 @@
 == TODO:
+* Flux for watchlist management
